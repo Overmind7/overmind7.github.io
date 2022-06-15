@@ -6,16 +6,12 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>cls test</title>
-    <url>/2022/06/16/cls-test/</url>
-    <content><![CDATA[<p>aaa</p>
-<p>s</p>
+    <title>tag test</title>
+    <url>/2022/06/16/tag-test/</url>
+    <content><![CDATA[<p>test</p>
 ]]></content>
-      <categories>
-        <category>ab</category>
-      </categories>
       <tags>
-        <tag>b</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -37,12 +33,16 @@
 ]]></content>
   </entry>
   <entry>
-    <title>tag test</title>
-    <url>/2022/06/16/tag-test/</url>
-    <content><![CDATA[<p>test</p>
+    <title>cls test</title>
+    <url>/2022/06/16/cls-test/</url>
+    <content><![CDATA[<p>aaa</p>
+<p>s</p>
 ]]></content>
+      <categories>
+        <category>ab</category>
+      </categories>
       <tags>
-        <tag>测试</tag>
+        <tag>b</tag>
       </tags>
   </entry>
   <entry>
