@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>2022数据结构与算法春复习</title>
-    <url>/2022/06/16/2022%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%98%A5%E5%A4%8D%E4%B9%A0/</url>
+    <url>/2022/06/13/2022%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%98%A5%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>渐进符号</p>
 <p>算法效率的主要指标是基本操作次数的增长次数</p>
 <p>&#x3D;&#x3D;<em><strong>O</strong></em>（读“O”）：上界&#x3D;&#x3D;</p>
@@ -640,7 +640,9 @@
   <entry>
     <title>2022春计算机系统复习</title>
     <url>/2022/06/11/2022%E6%98%A5%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>ASCII：</p>
+    <content><![CDATA[<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><span id="more"></span>
+
+<p>ASCII：</p>
 <p>0：48</p>
 <p>9：57</p>
 <p>A：65</p>
@@ -1314,21 +1316,8 @@
       </tags>
   </entry>
   <entry>
-    <title>cls test</title>
-    <url>/2022/06/16/cls-test/</url>
-    <content><![CDATA[<p>aaa</p>
-<p>s</p>
-]]></content>
-      <categories>
-        <category>ab</category>
-      </categories>
-      <tags>
-        <tag>b</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
+    <url>/2022/01/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -1336,6 +1325,8 @@
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<span id="more"></span>
+
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
@@ -1345,8 +1336,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Dijkstra举例</title>
-    <url>/2022/06/16/Dijkstra%E4%B8%BE%E4%BE%8B/</url>
+    <title>图结构上机实验</title>
+    <url>/2022/05/19/%E5%9B%BE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在n个人中，某些人的银行账号之间可以互相转账。这些人之间转账的手续费各不相同。给定这些人之间转账时需要从转账金额里扣除百分之几的手续费，请问A最少需要多少钱使得转账后B收到100元。</p>
 <p><strong>输入</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一行输入两个正整数n,m，分别表示总人数和可以互相转账的人的对数。</span><br><span class="line">以下m行每行输入三个正整数x,y,z，表示标号为x的人和标号为y的人之间互相转账需要扣除z%的手续费(z&lt;100)。</span><br><span class="line">最后一行输入两个正整数A,B。数据保证A与B之间可以直接或间接地转账。</span><br></pre></td></tr></table></figure>
@@ -1382,20 +1373,6 @@
       <tags>
         <tag>Dijkstra</tag>
         <tag>图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_my_site</title>
-    <url>/2022/06/15/test-my-site/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>tag test</title>
-    <url>/2022/06/16/tag-test/</url>
-    <content><![CDATA[<p>test</p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
       </tags>
   </entry>
 </search>
