@@ -106,11 +106,69 @@
   </entry>
   
   <entry>
+    <title>激活函数</title>
+    <link href="https://overmind7.github.io/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    <id>https://overmind7.github.io/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</id>
+    <published>2022-02-16T11:27:34.000Z</published>
+    <updated>2022-06-16T14:27:59.454Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ReLU-Rectified-Linear-Unit-修正线性单元"><a href="#ReLU-Rectified-Linear-Unit-修正线性单元" class="headerlink" title="ReLU(Rectified Linear Unit,修正线性单元)"></a>ReLU(Rectified Linear Unit,修正线性单元)</h2><p>形式：</p><p>$$<br>f\left ( x \right ) &#x3D;\left{\begin{matrix}<br>                            0,&amp;   x\le 0<br>                            \<br>                            x,&amp;x&gt;0<br>\end{matrix}\right.<br>$$</p><span id="more"></span><h3 id="ReLU的稀疏性-2"><a href="#ReLU的稀疏性-2" class="headerlink" title="ReLU的稀疏性[^2]"></a><strong>ReLU的稀疏性</strong>[^2]</h3><blockquote><p>当前，深度学习一个明确的目标是从数据变量中解离出关键因子。原始数据（以自然数据为主）中通常缠绕着高度密集的特征。然而，如果能够解开特征间缠绕的复杂关系，转换为稀疏特征，那么特征就有了鲁棒性（去掉了无关的噪声）。稀疏特征并不需要网络具有很强的处理线性不可分机制。那么在深度网络中，对非线性的依赖程度就可以缩一缩。一旦神经元与神经元之间改为线性激活，网络的<em>非线性部分</em>仅仅来自于神经元部分选择性激活。<br>对比大脑工作的95%稀疏性来看，现有的计算神经网络和生物神经网络还是有很大差距的。庆幸的是，ReLu只有负值才会被稀疏掉，即引入的稀疏性是可以训练调节的，是动态变化的。只要进行梯度训练，网络可以向误差减少的方向，自动调控稀疏比率，保证激活链上存在着合理数量的非零值。</p></blockquote><h3 id="ReLU-的缺点"><a href="#ReLU-的缺点" class="headerlink" title="ReLU 的缺点"></a>ReLU 的缺点</h3><ul><li><p>坏死: ReLU 强制的稀疏处理会减少模型的有效容量（即特征屏蔽太多，导致模型无法学习到有效特征）。由于ReLU在x &lt; 0时梯度为0，这样就导致负的梯度在这个ReLU被置零，而且这个神经元有可能再也不会被任何数据激活，称为神经元“坏死”。</p></li><li><p>无负值: ReLU和sigmoid的一个相同点是结果是正值，没有负值.</p></li></ul><h2 id="ReLU变种"><a href="#ReLU变种" class="headerlink" title="ReLU变种"></a>ReLU变种</h2><h3 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h3><h3 id="指数线性单元ELU"><a href="#指数线性单元ELU" class="headerlink" title="指数线性单元ELU"></a>指数线性单元ELU</h3><h3 id="SELU"><a href="#SELU" class="headerlink" title="SELU"></a>SELU</h3><h2 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h2><h2 id="GELU"><a href="#GELU" class="headerlink" title="GELU"></a>GELU</h2><h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><h2 id="sigmoid-与-tanh"><a href="#sigmoid-与-tanh" class="headerlink" title="sigmoid 与 tanh"></a>sigmoid 与 tanh</h2><h4 id="为什么tanh相比sigmoid收敛更快"><a href="#为什么tanh相比sigmoid收敛更快" class="headerlink" title="为什么tanh相比sigmoid收敛更快:"></a>为什么tanh相比sigmoid收敛更快:</h4><ol><li><p>梯度消失问题</p><p>$\tanh’( x ) &#x3D; 1-\tanh( x )^2 \in (0,1)$</p><p>$\text{sigmoid: } s’(x)&#x3D;s(x)\times(1-s(x))\in(0,1&#x2F;4)$</p><p>可以看出tanh(x)的梯度消失问题比sigmoid要轻.梯度如果过早消失,收敛速度较慢.</p></li><li><p>以零为中心的影响<br>如果当前参数(w0,w1)的最佳优化方向是(+d0, -d1),则根据反向传播计算公式,我们希望 x0 和 x1 符号相反。但是如果上一级神经元采用 Sigmoid 函数作为激活函数，sigmoid不以0为中心，输出值恒为正，那么我们无法进行最快的参数更新，而是走 Z 字形逼近最优解。<a href="http://mathforum.org/library/drmath/view/54179.html">^1</a></p></li></ol><h2 id="激活函数作用"><a href="#激活函数作用" class="headerlink" title="激活函数作用"></a>激活函数作用</h2><h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><h2 id="激活函数选择"><a href="#激活函数选择" class="headerlink" title="激活函数选择"></a>激活函数选择</h2><ol><li>首先尝试ReLU,速度快,但要注意训练的状态.</li><li>如果ReLU效果欠佳,尝试Leaky ReLU或Maxout等变种。</li><li>尝试tanh正切函数(以零点为中心,零点处梯度为1)</li><li>sigmoid&#x2F;tanh在RNN（LSTM、注意力机制等）结构中有所应用，作为门控或者概率值。</li><li>在浅层神经网络中，如不超过4层的，可选择使用多种激励函数，没有太大的影响。</li></ol><blockquote><p>主要参考：<a href="https://www.cnblogs.com/makefile/p/activation-function.html#fnref1">激活函数(ReLU, Swish, Maxout) - 康行天下 - 博客园 (cnblogs.com)</a></p></blockquote><p>[^2]:<a href="https://www.cnblogs.com/neopenx/p/4453161.html">ReLu(Rectified Linear Units)激活函数 - Physcal - 博客园 (cnblogs.com)</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;ReLU-Rectified-Linear-Unit-修正线性单元&quot;&gt;&lt;a href=&quot;#ReLU-Rectified-Linear-Unit-修正线性单元&quot; class=&quot;headerlink&quot; title=&quot;ReLU(Rectified Linear Unit,修正线性单元)&quot;&gt;&lt;/a&gt;ReLU(Rectified Linear Unit,修正线性单元)&lt;/h2&gt;&lt;p&gt;形式：&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;f\left ( x \right ) &amp;#x3D;\left{\begin{matrix}&lt;br&gt;                            0,	&amp;amp;   x\le 0&lt;br&gt;                            \&lt;br&gt;                            x,	&amp;amp;	x&amp;gt;0&lt;br&gt;\end{matrix}\right.&lt;br&gt;$$&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深度学习" scheme="https://overmind7.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="深度学习" scheme="https://overmind7.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="激活函数" scheme="https://overmind7.github.io/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer</title>
+    <link href="https://overmind7.github.io/2022/01/18/Transformers/"/>
+    <id>https://overmind7.github.io/2022/01/18/Transformers/</id>
+    <published>2022-01-18T14:09:10.000Z</published>
+    <updated>2022-06-16T14:28:32.646Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="自注意力"><a href="#自注意力" class="headerlink" title="自注意力"></a>自注意力</h2><ul><li><p>自注意力池化将层 xi 当作key，value，query来对序列抽取特征</p><ul><li>完全并行、最长序列为1、但对长序列计算复杂度高</li></ul><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212624.png" alt="image-20220616221239595" style="zoom:50%;" /></li><li><p>位置编码</p><ul><li><p>与CNN&#x2F;RNN不同，自注意力没用记录位置信息<span id="more"></span></p></li><li><p>将位置编码矩阵<strong>P</strong>加入到输入<strong>X</strong>里面：<strong>X</strong>+<strong>P</strong>作为编码输入</p></li><li><p>绝对位置</p></li></ul><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212419.png" alt="image-20220616221252400" style="zoom: 50%;" /><ul><li>相对位置</li></ul></li></ul><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162213156.png" alt="image-20220616221310139" style="zoom:50%;" /><h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><ul><li>完全基于注意⼒机制，没有任何卷积层或循环神经网络层</li><li>编码器－解码器结构</li></ul><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215250.png" alt="image-20220616221501203" style="zoom:50%;" /><h3 id="多头注意力"><a href="#多头注意力" class="headerlink" title="多头注意力"></a>多头注意力</h3><p>​<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215339.png" alt="image-20220616221533312" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215116.png" alt="image-20220616221543091" style="zoom:50%;" /></p><ul><li>对同一key，value，query，希望提取不同的信息</li><li>使用h个独立注意力池化</li><li>合并各个head输出</li><li>类比多通道</li><li>识别不同的模式</li><li>缩放点积注意力</li></ul><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218545.png" alt="image-20220616221836522" style="zoom:50%;" /> <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218910.png" alt="image-20220616221854891" style="zoom:55%;" /><h3 id="带掩码的注意力"><a href="#带掩码的注意力" class="headerlink" title="带掩码的注意力"></a>带掩码的注意力</h3><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221045.png" alt="image-20220616222102020" style="zoom:50%;" /><ul><li>解码器的输入是之前输出</li><li>在自注意力机制中能够看到全局</li><li>在解码器训练时，预测第t个的输出的时候，不应该看到t后面的输入</li><li>保证训练和预测的行为一致</li></ul><h3 id="层归一化"><a href="#层归一化" class="headerlink" title="层归一化"></a>层归一化</h3><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221800.png" alt="image-20220616222149767" style="zoom:50%;" /><ul><li><p>批量归一化对每个特征&#x2F;通道里的元素进行归一化</p><ul><li>不适合序列长度会变的自然语言处理</li><li>样本长度变化比较大，均值和方差抖动较大</li><li>预测时使用的全局均值和方差，遇到极端样本可能失效<ul><li>把不同句子相同位置的token作为同一个特征进行归一化是不合适的</li></ul></li></ul></li><li><p>层归一化对每个样本里的元素归一化</p><ul><li>每个样本自己的均值和方差</li><li>更稳定</li></ul></li></ul><h3 id="信息传递"><a href="#信息传递" class="headerlink" title="信息传递"></a>信息传递</h3><ul><li><p>假-设编码器输出 y<sub>1</sub>……y<sub>n</sub></p></li><li><p>将其作为解码中第 i 个 transformer 块中多头注意力的 key 和 value</p><ul><li>它的 query 来自目标序列</li></ul></li><li><p>使得编码器和解码器输出的维度一样</p></li><li><p>根据解码器不同的输入，在编码器中挑选（注意）到感兴趣的东西</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;自注意力&quot;&gt;&lt;a href=&quot;#自注意力&quot; class=&quot;headerlink&quot; title=&quot;自注意力&quot;&gt;&lt;/a&gt;自注意力&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;自注意力池化将层 xi 当作key，value，query来对序列抽取特征&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;完全并行、最长序列为1、但对长序列计算复杂度高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212624.png&quot; alt=&quot;image-20220616221239595&quot; style=&quot;zoom:50%;&quot; /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;位置编码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;与CNN&amp;#x2F;RNN不同，自注意力没用记录位置信息</summary>
+    
+    
+    
+    <category term="深度学习" scheme="https://overmind7.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="transformer" scheme="https://overmind7.github.io/tags/transformer/"/>
+    
+    <category term="cv" scheme="https://overmind7.github.io/tags/cv/"/>
+    
+    <category term="nlp" scheme="https://overmind7.github.io/tags/nlp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="https://overmind7.github.io/2022/01/19/hello-world/"/>
-    <id>https://overmind7.github.io/2022/01/19/hello-world/</id>
-    <published>2022-01-19T02:21:05.000Z</published>
-    <updated>2022-06-16T09:17:21.800Z</updated>
+    <link href="https://overmind7.github.io/2021/09/02/hello-world/"/>
+    <id>https://overmind7.github.io/2021/09/02/hello-world/</id>
+    <published>2021-09-02T02:21:05.000Z</published>
+    <updated>2022-06-16T14:26:37.390Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><span id="more"></span><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     

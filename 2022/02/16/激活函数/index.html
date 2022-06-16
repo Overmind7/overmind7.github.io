@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2022/6 |  今天学习了吗</title>
+      <title>激活函数 |  今天学习了吗</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/picture_compress.ico" />
@@ -55,89 +55,183 @@
       
     <main class="content on">
       <section class="outer">
+  <article
+  id="post-激活函数"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  激活函数
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2022-02-16T11:27:34.000Z" itemprop="datePublished">2022-02-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+  </div>
   
-  <ul class="ads">
-    
-        <li>
-            <a href="">
-                <img src="" width="" alt="">
-            </a>
-        </li>
-    
-        <li>
-            <a href="">
-                <img src="" width="" alt="">
-            </a>
-        </li>
-    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">817</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="ReLU-Rectified-Linear-Unit-修正线性单元"><a href="#ReLU-Rectified-Linear-Unit-修正线性单元" class="headerlink" title="ReLU(Rectified Linear Unit,修正线性单元)"></a>ReLU(Rectified Linear Unit,修正线性单元)</h2><p>形式：</p>
+<p>$$<br>f\left ( x \right ) &#x3D;\left{\begin{matrix}<br>                            0,	&amp;   x\le 0<br>                            \<br>                            x,	&amp;	x&gt;0<br>\end{matrix}\right.<br>$$</p>
+<span id="more"></span>
+
+
+<h3 id="ReLU的稀疏性-2"><a href="#ReLU的稀疏性-2" class="headerlink" title="ReLU的稀疏性[^2]"></a><strong>ReLU的稀疏性</strong>[^2]</h3><blockquote>
+<p>当前，深度学习一个明确的目标是从数据变量中解离出关键因子。原始数据（以自然数据为主）中通常缠绕着高度密集的特征。然而，如果能够解开特征间缠绕的复杂关系，转换为稀疏特征，那么特征就有了鲁棒性（去掉了无关的噪声）。稀疏特征并不需要网络具有很强的处理线性不可分机制。那么在深度网络中，对非线性的依赖程度就可以缩一缩。一旦神经元与神经元之间改为线性激活，网络的<em>非线性部分</em>仅仅来自于神经元部分选择性激活。<br>对比大脑工作的95%稀疏性来看，现有的计算神经网络和生物神经网络还是有很大差距的。庆幸的是，ReLu只有负值才会被稀疏掉，即引入的稀疏性是可以训练调节的，是动态变化的。只要进行梯度训练，网络可以向误差减少的方向，自动调控稀疏比率，保证激活链上存在着合理数量的非零值。</p>
+</blockquote>
+<h3 id="ReLU-的缺点"><a href="#ReLU-的缺点" class="headerlink" title="ReLU 的缺点"></a>ReLU 的缺点</h3><ul>
+<li><p>坏死: ReLU 强制的稀疏处理会减少模型的有效容量（即特征屏蔽太多，导致模型无法学习到有效特征）。由于ReLU在x &lt; 0时梯度为0，这样就导致负的梯度在这个ReLU被置零，而且这个神经元有可能再也不会被任何数据激活，称为神经元“坏死”。</p>
+</li>
+<li><p>无负值: ReLU和sigmoid的一个相同点是结果是正值，没有负值.</p>
+</li>
 </ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">2022/6</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/13/2022%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%98%A5%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
-  <time datetime="2022-06-12T16:00:00.000Z" itemprop="datePublished">06/13</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/13/2022%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%98%A5%E5%A4%8D%E4%B9%A0/"
-    >2022数据结构与算法春复习</a> 
-</h2>
+<h2 id="ReLU变种"><a href="#ReLU变种" class="headerlink" title="ReLU变种"></a>ReLU变种</h2><h3 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h3><h3 id="指数线性单元ELU"><a href="#指数线性单元ELU" class="headerlink" title="指数线性单元ELU"></a>指数线性单元ELU</h3><h3 id="SELU"><a href="#SELU" class="headerlink" title="SELU"></a>SELU</h3><h2 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h2><h2 id="GELU"><a href="#GELU" class="headerlink" title="GELU"></a>GELU</h2><h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><h2 id="sigmoid-与-tanh"><a href="#sigmoid-与-tanh" class="headerlink" title="sigmoid 与 tanh"></a>sigmoid 与 tanh</h2><h4 id="为什么tanh相比sigmoid收敛更快"><a href="#为什么tanh相比sigmoid收敛更快" class="headerlink" title="为什么tanh相比sigmoid收敛更快:"></a>为什么tanh相比sigmoid收敛更快:</h4><ol>
+<li><p>梯度消失问题</p>
+<p>$\tanh’( x ) &#x3D; 1-\tanh( x )^2 \in (0,1)$</p>
+<p>$\text{sigmoid: } s’(x)&#x3D;s(x)\times(1-s(x))\in(0,1&#x2F;4)$</p>
+<p>可以看出tanh(x)的梯度消失问题比sigmoid要轻.梯度如果过早消失,收敛速度较慢.</p>
+</li>
+<li><p>以零为中心的影响<br>如果当前参数(w0,w1)的最佳优化方向是(+d0, -d1),则根据反向传播计算公式,我们希望 x0 和 x1 符号相反。但是如果上一级神经元采用 Sigmoid 函数作为激活函数，sigmoid不以0为中心，输出值恒为正，那么我们无法进行最快的参数更新，而是走 Z 字形逼近最优解。<a target="_blank" rel="noopener" href="http://mathforum.org/library/drmath/view/54179.html">^1</a></p>
+</li>
+</ol>
+<h2 id="激活函数作用"><a href="#激活函数作用" class="headerlink" title="激活函数作用"></a>激活函数作用</h2><h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><h2 id="激活函数选择"><a href="#激活函数选择" class="headerlink" title="激活函数选择"></a>激活函数选择</h2><ol>
+<li>首先尝试ReLU,速度快,但要注意训练的状态.</li>
+<li>如果ReLU效果欠佳,尝试Leaky ReLU或Maxout等变种。</li>
+<li>尝试tanh正切函数(以零点为中心,零点处梯度为1)</li>
+<li>sigmoid&#x2F;tanh在RNN（LSTM、注意力机制等）结构中有所应用，作为门控或者概率值。</li>
+<li>在浅层神经网络中，如不超过4层的，可选择使用多种激励函数，没有太大的影响。</li>
+</ol>
+<blockquote>
+<p>主要参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/makefile/p/activation-function.html#fnref1">激活函数(ReLU, Swish, Maxout) - 康行天下 - 博客园 (cnblogs.com)</a></p>
+</blockquote>
+<p>[^2]:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/neopenx/p/4453161.html">ReLu(Rectified Linear Units)激活函数 - Physcal - 博客园 (cnblogs.com)</a></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/11/2022%E6%98%A5%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
-  <time datetime="2022-06-11T08:55:11.000Z" itemprop="datePublished">06/11</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/11/2022%E6%98%A5%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/"
-    >2022春计算机系统复习</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://overmind7.github.io/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" rel="tag">激活函数</a></li></ul>
+
+    </footer>
   </div>
-  
-  
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/05/19/%E5%9B%BE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            图结构上机实验
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/01/18/Transformers/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Transformer</div>
+      </a>
+    
+  </nav>
 
   
+   
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -270,6 +364,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
