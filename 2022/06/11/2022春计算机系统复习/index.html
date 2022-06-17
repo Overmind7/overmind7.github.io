@@ -44,7 +44,7 @@
         }
       </style>
     <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -107,8 +107,8 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><span id="more"></span>
-
+  <h2 id="基础知识">基础知识</h2>
+<span id="more"></span>
 <p>ASCII：</p>
 <p>0：48</p>
 <p>9：57</p>
@@ -122,19 +122,17 @@
 <blockquote>
 <p>单位换算：</p>
 </blockquote>
-<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656832.png" alt="image-20220610215408779" style="zoom: 50%;" />
-
-
-
-<h2 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>16位：AX、BX、CX、DX；SI、DI；SP、DP</p>
-<p>8位：AH, AL ; BH, BL； CH, CL； DH, DL </p>
+<h3 id="编译过程">编译过程</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656832.png" alt="image-20220610215408779" style="zoom: 50%;" />
+<h2 id="汇编">汇编</h2>
+<h3 id="寄存器">寄存器</h3>
+<p>16位：AX、BX、CX、DX；SI、DI；SP、DP</p>
+<p>8位：AH, AL ; BH, BL； CH, CL； DH, DL</p>
 <p>32位：EAX, EBX, ECX, EDX；ESI, EDI； ESP, EBP</p>
 <p>段寄存器：DS，ES，SS ……</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656753.png" alt="image-20220610203943865" style="zoom:50%;" />
-
 <p>汇编语言格式：（AT&amp;T格式）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movl $8,%eax</span><br><span class="line">;指令 源操作数，目的操作数</span><br></pre></td></tr></table></figure>
-
 <p>操作数：</p>
 <ul>
 <li>立即数</li>
@@ -142,109 +140,109 @@
 <li>储存器</li>
 </ul>
 <blockquote>
-<p>CPU计算&#x3D;&#x3D;仅从&#x3D;&#x3D;寄存器直接存&#x2F;取数据。</p>
+<p>CPU计算==仅从==寄存器直接存/取数据。</p>
 </blockquote>
 <hr>
-<h3 id="数据传送"><a href="#数据传送" class="headerlink" title="数据传送"></a>数据传送</h3><ul>
-<li><code>movl</code>: 用于传送32位的长字值 </li>
+<h3 id="数据传送">数据传送</h3>
+<ul>
+<li><code>movl</code>: 用于传送32位的长字值</li>
 <li><code>movw</code>： 用于传送16位的字值</li>
 <li><code>movb</code>： 用于传送8位的字值</li>
 </ul>
-<h5 id="传送数据到内存"><a href="#传送数据到内存" class="headerlink" title="传送数据到内存"></a>传送数据到内存</h5><h5 id="获取变量在内存的地址"><a href="#获取变量在内存的地址" class="headerlink" title="获取变量在内存的地址"></a>获取变量在内存的地址</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl $value1,%edi</span><br><span class="line">leal value1,%edi	;lea—Load Effective Address</span><br><span class="line">					;加 L 表示 32 位</span><br></pre></td></tr></table></figure>
-
+<h5 id="传送数据到内存">传送数据到内存</h5>
+<h5 id="获取变量在内存的地址">获取变量在内存的地址</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl $value1,%edi</span><br><span class="line">leal value1,%edi	;lea—Load Effective Address</span><br><span class="line">					;加 L 表示 32 位</span><br></pre></td></tr></table></figure>
 <p>计算 <code>3x+5</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leal 5(%edx, edx, 2),%eax</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>比用专用 ALU 算数逻辑单元更快</p>
 <p>而且能够与 ALU 并行</p>
 </blockquote>
 <hr>
-<h4 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">movl $1,%eax	;立即数寻址</span><br><span class="line">;立即数寻址方式主要用来给寄存器或存储单元赋值，因此这种寻址方式不能用于单操作数指令；</span><br><span class="line">;若用于双操作数指令，也只能用于源操作数字段，不能用于目标操作数字段。</span><br><span class="line"></span><br><span class="line">movl %ebx,%eax	;寄存器寻址</span><br><span class="line">;指令所要的操作数已存储在某寄存器中，或把目标操作数存入寄存器。</span><br><span class="line">;把在指令中指出所使用寄存器(即：寄存器的助忆符)的寻址方式称为寄存器寻址方式。</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="基址比例变址寻址"><a href="#基址比例变址寻址" class="headerlink" title="基址比例变址寻址"></a>基址比例变址寻址</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Memory references have the following syntax:segment:offset(base, index, scale).</span><br></pre></td></tr></table></figure>
-
+<h4 id="寻址方式">寻址方式</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">movl $1,%eax	;立即数寻址</span><br><span class="line">;立即数寻址方式主要用来给寄存器或存储单元赋值，因此这种寻址方式不能用于单操作数指令；</span><br><span class="line">;若用于双操作数指令，也只能用于源操作数字段，不能用于目标操作数字段。</span><br><span class="line"></span><br><span class="line">movl %ebx,%eax	;寄存器寻址</span><br><span class="line">;指令所要的操作数已存储在某寄存器中，或把目标操作数存入寄存器。</span><br><span class="line">;把在指令中指出所使用寄存器(即：寄存器的助忆符)的寻址方式称为寄存器寻址方式。</span><br></pre></td></tr></table></figure>
+<h5 id="基址比例变址寻址">基址比例变址寻址</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Memory references have the following syntax:segment:offset(base, index, scale).</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>segment是x86架构的任意一个段地址寄存器。segment参数是可选的（可以不指定）：如果指定了段寄存器，必须和偏移量之间有一个冒号。如果segment参数被省略，默认的段地址寄存器ds 就会被用于计算最终的地址。</p>
+<li>
+<p>segment是x86架构的任意一个段地址寄存器。segment参数是可选的（可以不指定）：如果指定了段寄存器，必须和偏移量之间有一个冒号。如果segment参数被省略，默认的段地址寄存器ds 就会被用于计算最终的地址。</p>
 </li>
-<li><p>offset是指从段起始地址到目标变量地址之间的偏移量。offset同样也是可选</p>
+<li>
+<p>offset是指从段起始地址到目标变量地址之间的偏移量。offset同样也是可选</p>
 </li>
-<li><p>base 和 index 参数可以是任意的32位通用寄存器</p>
+<li>
+<p>base 和 index 参数可以是任意的32位通用寄存器</p>
 </li>
-<li><p>Scale参数是表示index寄存器内容需要乘的值，&#x3D;&#x3D;只能是1，2，4，8……&#x3D;&#x3D;默认是1.</p>
+<li>
+<p>Scale参数是表示index寄存器内容需要乘的值，==只能是1，2，4，8……==默认是1.</p>
 </li>
-<li><p>例1</p>
+<li>
+<p>例1</p>
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl base(%ebx, %esi, 4), %eax</span><br></pre></td></tr></table></figure>
-
-<p>表示 <code>%eax = [ base + %ebx + %esi*4 ]</code><br>将 <code>base + %ebx + %esi*4</code> 指向的内存位置的值赋值给eax寄存器。</p>
+<p>表示 <code>%eax = [ base + %ebx + %esi*4 ]</code><br>
+将 <code>base + %ebx + %esi*4</code> 指向的内存位置的值赋值给eax寄存器。</p>
 <ul>
 <li>例2</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leal 32(, %edx, 8), %eax</span><br></pre></td></tr></table></figure>
-
-<p><code>%eax = 32 + ( %edx * 8 ) = 8 * (4 + %edx)</code><br>通常可以用<code>lea</code>指令表示一些乘法运算。</p>
-<h5 id="绝对寻址"><a href="#绝对寻址" class="headerlink" title="绝对寻址"></a>绝对寻址</h5><p>在指令格式的地址的字段中直接指出操作数在内存的地址。</p>
+<p><code>%eax = 32 + ( %edx * 8 ) = 8 * (4 + %edx)</code><br>
+通常可以用<code>lea</code>指令表示一些乘法运算。</p>
+<h5 id="绝对寻址">绝对寻址</h5>
+<p>在指令格式的地址的字段中直接指出操作数在内存的地址。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl 0x08048054,%eax</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="间接寻址"><a href="#间接寻址" class="headerlink" title="间接寻址"></a>间接寻址</h5><p>相对于寄存器寻址多了个括号：表示这个值不是来自 <code>%ebx</code>，而是来自一个内存地址，这个内存地址保存在 <code>%ebx</code> 中</p>
+<h5 id="间接寻址">间接寻址</h5>
+<p>相对于寄存器寻址多了个括号：表示这个值不是来自 <code>%ebx</code>，而是来自一个内存地址，这个内存地址保存在 <code>%ebx</code> 中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl (%ebx),%eax </span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="变址寻址"><a href="#变址寻址" class="headerlink" title="变址寻址"></a>变址寻址</h5><p>作用：访问数组、循环语句</p>
+<h5 id="变址寻址">变址寻址</h5>
+<p>作用：访问数组、循环语句</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl (%ebx,%edx),%eax</span><br></pre></td></tr></table></figure>
-
-
-
 <hr>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>在每个程序所分配的内存中，划分出一段连续的区域，作为栈空间。</p>
-<p>栈：先进后出 </p>
-<p>栈顶指针：保存在%esp寄存器中 </p>
-<p>压栈：push </p>
+<h3 id="栈">栈</h3>
+<p>在每个程序所分配的内存中，划分出一段连续的区域，作为栈空间。</p>
+<p>栈：先进后出</p>
+<p>栈顶指针：保存在%esp寄存器中</p>
+<p>压栈：push</p>
 <p>出栈：pop</p>
 <blockquote>
 <p><strong>栈顶是朝着低地址方向 （栈是向着零地址方向增长）</strong></p>
 </blockquote>
 <hr>
-<h3 id="算术逻辑运算指令"><a href="#算术逻辑运算指令" class="headerlink" title="算术逻辑运算指令"></a>算术逻辑运算指令</h3><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656134.png" alt="image-20220611143910209" style="zoom:80%;" />
-
-
-
-
-
+<h3 id="算术逻辑运算指令">算术逻辑运算指令</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656134.png" alt="image-20220611143910209" style="zoom:80%;" />
 <hr>
-<h3 id="跳转指令"><a href="#跳转指令" class="headerlink" title="跳转指令"></a>跳转指令</h3><p><code>%eip</code> 寄存器：存放下一条要执行指令的地址。</p>
+<h3 id="跳转指令">跳转指令</h3>
+<p><code>%eip</code> 寄存器：存放下一条要执行指令的地址。</p>
 <p>跳转指令：修改 <code>%eip</code> 的值</p>
-<h5 id="直接跳转指令"><a href="#直接跳转指令" class="headerlink" title="直接跳转指令"></a>直接跳转指令</h5><p>jmp：四种格式</p>
+<h5 id="直接跳转指令">直接跳转指令</h5>
+<p>jmp：四种格式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jmp lable			;跳转到标号</span><br><span class="line">jmp 0x0804909a 		;跳转到地址</span><br><span class="line">jmp *%eax 			;跳转到寄存器里面保存的地址</span><br><span class="line">jmp *lable			;？</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>指令的某一行加个冒号 <code>:</code> 作为标记</p>
 </blockquote>
-<h5 id="条件跳转指令"><a href="#条件跳转指令" class="headerlink" title="条件跳转指令"></a>条件跳转指令</h5><p>条件在 <code>%eflags </code>寄存器中</p>
+<h5 id="条件跳转指令">条件跳转指令</h5>
+<p>条件在 <code>%eflags </code>寄存器中</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657630.png" alt="image-20220611150041285" style="zoom: 50%;" />
-
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657079.png" alt="image-20220611150113553" style="zoom: 50%;" />
-
-
-
-
-
 <hr>
-<h3 id="循环指令"><a href="#循环指令" class="headerlink" title="循环指令"></a>循环指令</h3><p>循环可以通过跳转指令来实现 也可以利用loop指令来实现</p>
-<h2 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h2><h3 id="位、字节"><a href="#位、字节" class="headerlink" title="位、字节"></a>位、字节</h3><h4 id="位"><a href="#位" class="headerlink" title="位"></a>位</h4><h4 id="字节"><a href="#字节" class="headerlink" title="字节"></a>字节</h4><h4 id="机器字长"><a href="#机器字长" class="headerlink" title="机器字长"></a>机器字长</h4><h4 id="字节顺序"><a href="#字节顺序" class="headerlink" title="字节顺序"></a>字节顺序</h4><ul>
-<li><p>大端法：MAC，Internet</p>
+<h3 id="循环指令">循环指令</h3>
+<p>循环可以通过跳转指令来实现 也可以利用loop指令来实现</p>
+<h2 id="信息存储">信息存储</h2>
+<h3 id="位-字节">位、字节</h3>
+<h4 id="位">位</h4>
+<h4 id="字节">字节</h4>
+<h4 id="机器字长">机器字长</h4>
+<h4 id="字节顺序">字节顺序</h4>
+<ul>
+<li>
+<p>大端法：MAC，Internet</p>
 <ul>
 <li>最高有效字节在最前面</li>
 </ul>
 </li>
-<li><p>小端法：X86</p>
+<li>
+<p>小端法：X86</p>
 <ul>
 <li>最低有效字节在最前面</li>
 </ul>
@@ -252,9 +250,11 @@
 <p>最低有效位：最低有效位（the least significant bit，lsb）是指一个二进制数字中的第0位 （即最低位）</p>
 <p>最高有效位：msb</p>
 </blockquote>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657516.png" alt="image-20220611093703094" style="zoom:80%;" /></li>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657516.png" alt="image-20220611093703094" style="zoom:80%;" />
+</li>
 </ul>
-<h4 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h4><ol>
+<h4 id="位运算">位运算</h4>
+<ol>
 <li>与 <code>&amp;</code> 、或 <code>|</code>、非 <code>~</code>、异或 <code>^</code></li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657287.png" alt="image-20220611103319274"></p>
@@ -266,16 +266,18 @@
 <li><code>&amp;&amp;</code>、<code>||</code>、<code>!</code>：看成整体，返回 <code>0</code>或者是 <code>1</code></li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">!<span class="number">0x41</span> → <span class="number">0x00</span></span><br><span class="line">!<span class="number">0x00</span> → <span class="number">0x01</span></span><br><span class="line">!!<span class="number">0x41</span> → <span class="number">0x01</span></span><br><span class="line"><span class="number">0x69</span> &amp;&amp; <span class="number">0x55</span> → <span class="number">0x01</span></span><br><span class="line"><span class="number">0x69</span> || <span class="number">0x55</span> → <span class="number">0x01</span></span><br></pre></td></tr></table></figure>
-
 <ol start="3">
-<li>位移操作<ul>
-<li>左移: x &lt;&lt; y <ul>
+<li>位移操作
+<ul>
+<li>左移: x &lt;&lt; y
+<ul>
 <li>将 x 左移 y 位 左边的位全都丢弃 在右边填0</li>
 </ul>
 </li>
-<li>右移: x &gt;&gt; y <ul>
-<li>将 x 右移 y 位 右边的位全都丢弃 </li>
-<li>逻辑移位：左边填0 </li>
+<li>右移: x &gt;&gt; y
+<ul>
+<li>将 x 右移 y 位 右边的位全都丢弃</li>
+<li>逻辑移位：左边填0</li>
 <li>算术移位：填充符号位</li>
 </ul>
 </li>
@@ -284,16 +286,16 @@
 </li>
 </ol>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657062.png" alt="image-20220611104254011" style="zoom:50%;" />
-
-
-
-<h3 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h3><h4 id="有符号数与无符号数表示"><a href="#有符号数与无符号数表示" class="headerlink" title="有符号数与无符号数表示"></a>有符号数与无符号数表示</h4><h5 id="整数编码"><a href="#整数编码" class="headerlink" title="整数编码"></a>整数编码</h5><p>无符号整数补码表示：</p>
+<h3 id="整数">整数</h3>
+<h4 id="有符号数与无符号数表示">有符号数与无符号数表示</h4>
+<h5 id="整数编码">整数编码</h5>
+<p>无符号整数补码表示：</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657068.png" alt="image-20220611104956200" style="zoom:60%;" />
-
-<p>Sign Bit </p>
+<p>Sign Bit</p>
 <ul>
-<li>在补码表示中，最高位为符号位 <ul>
-<li>0表示非负数 </li>
+<li>在补码表示中，最高位为符号位
+<ul>
+<li>0表示非负数</li>
 <li>1 表示负数</li>
 </ul>
 </li>
@@ -303,7 +305,7 @@
 <table>
 <thead>
 <tr>
-<th align="center">-128</th>
+<th style="text-align:center">-128</th>
 <th>64</th>
 <th>32</th>
 <th>16</th>
@@ -313,8 +315,9 @@
 <th>1</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">1</td>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -323,9 +326,11 @@
 <td>1</td>
 <td>1</td>
 </tr>
-</tbody></table>
-<p>$-125&#x3D;-128+2+1$</p>
-<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><blockquote>
+</tbody>
+</table>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>125</mn><mo>=</mo><mo>−</mo><mn>128</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-125=-128+2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mord">2</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<h4 id="转换">转换</h4>
+<blockquote>
 <p>正数：原码与补码相同，符号位为0</p>
 <p>负数：将其原码除符号位外的所有位取反（0变1，1变0，符号位为1不变）后加1</p>
 <blockquote>
@@ -333,297 +338,318 @@
 <p>-5对应带符号位负数5（10000101）→除符号位外所有位取反（11111010）→加 00000001为 (11111011)</p>
 </blockquote>
 </blockquote>
-<h4 id="扩展与截断"><a href="#扩展与截断" class="headerlink" title="扩展与截断"></a>扩展与截断</h4><h4 id="加法、乘法、移位"><a href="#加法、乘法、移位" class="headerlink" title="加法、乘法、移位"></a>加法、乘法、移位</h4><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>加法: <ul>
-<li>无符号&#x2F;有符号: 正常加法+截位 </li>
+<h4 id="扩展与截断">扩展与截断</h4>
+<h4 id="加法-乘法-移位">加法、乘法、移位</h4>
+<h4 id="总结">总结</h4>
+<ul>
+<li>加法:
+<ul>
+<li>无符号/有符号: 正常加法+截位</li>
 <li>在位级表示上无区分</li>
 </ul>
 </li>
-<li>乘法: <ul>
-<li>无符号&#x2F;有符号: 正常乘法法+截位 </li>
+<li>乘法:
+<ul>
+<li>无符号/有符号: 正常乘法法+截位</li>
 <li>在位级表示上无区分</li>
 </ul>
 </li>
-<li>除法: <ul>
-<li>讨论了除数为2的整数幂的情况 </li>
-<li>无符号&#x2F;有符号: 移位的区别</li>
+<li>除法:
+<ul>
+<li>讨论了除数为2的整数幂的情况</li>
+<li>无符号/有符号: 移位的区别</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p>为什么要用无符号整数</p>
 <ul>
-<li>当进行整数模运算时 </li>
-<li>当使用 Bit位来表示集合时 </li>
+<li>当进行整数模运算时</li>
+<li>当使用 Bit位来表示集合时</li>
 <li>需要节省内存空间时——例如表示0~255的像素分量</li>
 <li>…………</li>
 </ul>
 </blockquote>
-<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><h4 id="二进制小数"><a href="#二进制小数" class="headerlink" title="二进制小数"></a>二进制小数</h4><p>小数点右边，每移动一位，基数乘以$1&#x2F;2$</p>
-<p>5.75 &#x3D; 101.11<sub>2</sub> &#x3D; 2<sup>2</sup> + 2<sup>0</sup> + 2<sup>-1</sup> + 2<sup>-2</sup></p>
+<h3 id="浮点数">浮点数</h3>
+<h4 id="二进制小数">二进制小数</h4>
+<p>小数点右边，每移动一位，基数乘以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">2</span></span></span></span></p>
+<p>5.75 = 101.11<sub>2</sub> = 2<sup>2</sup> + 2<sup>0</sup> + 2<sup>-1</sup> + 2<sup>-2</sup></p>
 <blockquote>
-<p>限制 </p>
+<p>限制</p>
 <ul>
-<li>只能精确表示诸如 x&#x2F;2<sup>k</sup>的数 </li>
+<li>只能精确表示诸如 x/2<sup>k</sup>的数</li>
 <li>其他的值只能近似表示</li>
 </ul>
 </blockquote>
-<h4 id="IEEEE-浮点数标准"><a href="#IEEEE-浮点数标准" class="headerlink" title="IEEEE 浮点数标准"></a>IEEEE 浮点数标准</h4><ul>
-<li><p>数学形式：<br>$$<br>(-1)^sM ×2^E<br>$$</p>
+<h4 id="ieeee-浮点数标准">IEEEE 浮点数标准</h4>
 <ul>
-<li>符号位s 确定了这个数是负数还是正数，数值0的符号位特殊处理 </li>
-<li>尾数M（Significand） 是一个二进制小数，通常规定在 范围中[1.0,2.0). </li>
+<li>
+<p>数学形式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>s</mi></msup><mi>M</mi><mo>×</mo><msup><mn>2</mn><mi>E</mi></msup></mrow><annotation encoding="application/x-tex">(-1)^sM ×2^E
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8913309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li>符号位s 确定了这个数是负数还是正数，数值0的符号位特殊处理</li>
+<li>尾数M（Significand） 是一个二进制小数，通常规定在 范围中[1.0,2.0).</li>
 <li>阶码 E （Exponent）表示2的幂</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <ul>
-<li>IEEE浮点数采用 M x 2E的形式表示（近似表示） </li>
-<li>提供了表示一些特殊值（正负无穷，NaN）的方法 </li>
-<li>只有有限的范围和精度 </li>
+<li>IEEE浮点数采用 M x 2E的形式表示（近似表示）</li>
+<li>提供了表示一些特殊值（正负无穷，NaN）的方法</li>
+<li>只有有限的范围和精度</li>
 <li>不遵守普遍的算术属性（例如结合性）</li>
 </ul>
 </blockquote>
 <p>规格化</p>
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><h4 id="舍入与运算"><a href="#舍入与运算" class="headerlink" title="舍入与运算"></a>舍入与运算</h4><h5 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h5><h5 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h5><h5 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h5><h4 id="C语言中的浮点数"><a href="#C语言中的浮点数" class="headerlink" title="C语言中的浮点数"></a>C语言中的浮点数</h4><ul>
-<li><p>C 提供了两种浮点数表示方式 </p>
+<h4 id="性质">性质</h4>
+<h4 id="舍入与运算">舍入与运算</h4>
+<h5 id="舍入">舍入</h5>
+<h5 id="加法">加法</h5>
+<h5 id="乘法">乘法</h5>
+<h4 id="c语言中的浮点数">C语言中的浮点数</h4>
 <ul>
-<li>float single precision </li>
+<li>
+<p>C 提供了两种浮点数表示方式</p>
+<ul>
+<li>float single precision</li>
 <li>double double precision</li>
 </ul>
 </li>
-<li><p>转换 </p>
+<li>
+<p>转换</p>
 <ul>
-<li>在 int, float, and double 的转换过程中位级表示会改 变 </li>
-<li>double&#x2F;float → int <ul>
-<li>值向零舍入 </li>
+<li>在 int, float, and double 的转换过程中位级表示会改 变</li>
+<li>double/float → int
+<ul>
+<li>值向零舍入</li>
 <li>对于无法表示或超出范围的值没有进行定义</li>
 </ul>
 </li>
-<li>int → double <ul>
+<li>int → double
+<ul>
 <li>能够保留精确值</li>
 </ul>
 </li>
-<li>int → float <ul>
+<li>int → float
+<ul>
 <li>数字不会溢出，但可能被舍入</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="程序的机器级表示"><a href="#程序的机器级表示" class="headerlink" title="程序的机器级表示"></a>程序的机器级表示</h2><h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><h4 id="从-c-代码到目标文件"><a href="#从-c-代码到目标文件" class="headerlink" title="从 c 代码到目标文件"></a>从 c 代码到目标文件</h4><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657684.png" alt="image-20220610215408779" style="zoom: 50%;" />
-
+<h2 id="程序的机器级表示">程序的机器级表示</h2>
+<h3 id="基本">基本</h3>
+<h4 id="从-c-代码到目标文件">从 c 代码到目标文件</h4>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657684.png" alt="image-20220610215408779" style="zoom: 50%;" />
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657459.png" alt="image-20220611152605788" style="zoom:40%;" />
-
 <p>区别在于可执行目标文件已经分配了实际内存地址。</p>
-<h4 id="数据传送与寻址"><a href="#数据传送与寻址" class="headerlink" title="数据传送与寻址"></a>数据传送与寻址</h4><h5 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h5><ul>
-<li>“整数” 1，2，4，8 bytes <ul>
-<li>数据值 </li>
+<h4 id="数据传送与寻址">数据传送与寻址</h4>
+<h5 id="基本数据类型">基本数据类型</h5>
+<ul>
+<li>“整数” 1，2，4，8 bytes
+<ul>
+<li>数据值</li>
 <li>地址 (untyped pointers) （地址长度与机器字长相等）</li>
 </ul>
 </li>
-<li>浮点数 4, 8, or 10 bytes <ul>
-<li>单精度（float: 4 bytes） </li>
-<li>双精度（double: 8 bytes） </li>
+<li>浮点数 4, 8, or 10 bytes
+<ul>
+<li>单精度（float: 4 bytes）</li>
+<li>双精度（double: 8 bytes）</li>
 <li>长双精度（long double or extended: 10 bytes）</li>
 </ul>
 </li>
-<li>数组与结构 <ul>
+<li>数组与结构
+<ul>
 <li>内存中一组连续分配的字节</li>
 </ul>
 </li>
 </ul>
-<h5 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h5><ul>
-<li><p>对寄存器或内存数据进行操作的运算类指令</p>
-</li>
-<li><p>在内存与寄存器中之间传送数据的传送类指令 </p>
+<h5 id="基本操作">基本操作</h5>
 <ul>
-<li>将数据从内存加载到寄存器中 </li>
+<li>
+<p>对寄存器或内存数据进行操作的运算类指令</p>
+</li>
+<li>
+<p>在内存与寄存器中之间传送数据的传送类指令</p>
+<ul>
+<li>将数据从内存加载到寄存器中</li>
 <li>将寄存器数据保存到内存中</li>
 </ul>
 </li>
-<li><p>决定程序走向的 决定程序走向的控制类指令 </p>
+<li>
+<p>决定程序走向的 决定程序走向的控制类指令</p>
 <ul>
-<li>无条件&#x2F;有条件跳转 </li>
-<li>分支&#x2F;循环</li>
+<li>无条件/有条件跳转</li>
+<li>分支/循环</li>
 </ul>
 </li>
 </ul>
-<h5 id="寄存器-1"><a href="#寄存器-1" class="headerlink" title="寄存器"></a>寄存器</h5><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657533.png" alt="image-20220611153355835" style="zoom:40%;" />
-
-
-
-<h5 id="传送数据"><a href="#传送数据" class="headerlink" title="传送数据"></a>传送数据</h5><ol>
+<h5 id="寄存器">寄存器</h5>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657533.png" alt="image-20220611153355835" style="zoom:40%;" />
+<h5 id="传送数据">传送数据</h5>
+<ol>
 <li>MOV 指令</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl Source, Dest </span><br></pre></td></tr></table></figure>
-
-<p>操作数类型 </p>
+<p>操作数类型</p>
 <ul>
-<li>Immediate:立即数 <ul>
-<li>例: $0x400, $-533  </li>
+<li>Immediate:立即数
+<ul>
+<li>例: $0x400, $-533</li>
 <li>占用 1, 2, or 4 字节</li>
 </ul>
 </li>
-<li>Register: 8个整数寄存器之一 个整数寄存器之一 <ul>
-<li>例: %eax, %edx </li>
-<li>%esp与%ebp保留作为特殊用途 </li>
+<li>Register: 8个整数寄存器之一 个整数寄存器之一
+<ul>
+<li>例: %eax, %edx</li>
+<li>%esp与%ebp保留作为特殊用途</li>
 <li>其他通用寄存器可能会在某些操作时有特定用途</li>
 </ul>
 </li>
-<li>Memory: 内存地址 <ul>
-<li>简单例子: (%eax) </li>
+<li>Memory: 内存地址
+<ul>
+<li>简单例子: (%eax)</li>
 <li>有非常多的寻址模式</li>
 </ul>
 </li>
 </ul>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657207.png" alt="image-20220611153814868" style="zoom:40%;" />
-
-
-
 <ol start="2">
 <li>push 与 pop</li>
 </ol>
 <p>注意栈是向下生长，地址向下递减</p>
 <ol start="3">
-<li><p>内存寻址</p>
+<li>
+<p>内存寻址</p>
 <p>如果操作数不在寄存器，就需要到内存中去找到数据存放的地址，然后将数据取到寄存器。</p>
 <ul>
 <li>寄存器间接寻址</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl (%ecx),%eax</span><br></pre></td></tr></table></figure>
-
 <p>寄存器中存放的是内存地址</p>
 <ul>
 <li>基址变址寻址</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl 8(%ebp),%edx</span><br></pre></td></tr></table></figure>
-
 <p>寄存器存放内存的起始地址，常数给出偏移量</p>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657106.png" alt="image-20220611155058518" style="zoom:50%;" /></li>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657106.png" alt="image-20220611155058518" style="zoom:50%;" />
+</li>
 </ol>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161657785.png" alt="image-20220611155141174" style="zoom:50%;" />
-
-
-
 <ol start="4">
-<li>lea 寻址<ul>
-<li>格式：leal Src, Dest<ul>
+<li>lea 寻址
+<ul>
+<li>格式：leal Src, Dest
+<ul>
 <li>Src: 地址计算表达式</li>
 <li>Src 结果保存在 Dest 中</li>
 </ul>
 </li>
-<li>用途：<ul>
+<li>用途：
+<ul>
 <li>计算内存地址本身（不取内存里的值）</li>
-<li>计算诸如 $x + k*y$ 表达式的值（k - 1，2，4，8）</li>
+<li>计算诸如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>k</mi><mo>∗</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x + k*y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 表达式的值（k - 1，2，4，8）</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658676.png" alt="image-20220611155759325" style="zoom: 50%;" />
-
-
-
-<h5 id="算术操作"><a href="#算术操作" class="headerlink" title="算术操作"></a>算术操作</h5><p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658200.png" alt="image-20220611160025669" style="zoom: 50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656735.png" alt="image-20220611160042885"></p>
+<h5 id="算术操作">算术操作</h5>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658200.png" alt="image-20220611160025669" style="zoom: 50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161656735.png" alt="image-20220611160042885"></p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658884.png" alt="image-20220611160143661" style="zoom:40%;" />
-
 <blockquote>
 <p>注意：加一减一操作，例如对有符号数，对补码运算，对补码的+7+1，变成1000，是补码的-8了。</p>
 </blockquote>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658450.png" alt="image-20220611161326163" style="zoom:50%;" />
-
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658907.png" alt="image-20220611161958820" style="zoom:50%;" />
-
-
-
-<h3 id="控制"><a href="#控制" class="headerlink" title="控制"></a>控制</h3><h4 id="条件码"><a href="#条件码" class="headerlink" title="条件码"></a>条件码</h4><ul>
-<li>每个条件码占一个bit <ul>
-<li>CF 最高位产生了进位，无符号操作数的溢出 </li>
-<li>SF 符号标志，操作结果为负数 </li>
-<li>ZF 零标志 </li>
+<h3 id="控制">控制</h3>
+<h4 id="条件码">条件码</h4>
+<ul>
+<li>每个条件码占一个bit
+<ul>
+<li>CF 最高位产生了进位，无符号操作数的溢出</li>
+<li>SF 符号标志，操作结果为负数</li>
+<li>ZF 零标志</li>
 <li>OF 溢出标志 (有符号数 signed)</li>
 </ul>
 </li>
-<li>例如: addl&#x2F;addq Src, Dest ↔ t &#x3D; a+b <ul>
-<li>CF set ，如果t溢出 </li>
-<li>ZF set ，如果 t &#x3D;&#x3D; 0 SF </li>
-<li>set ，如果 t &lt; 0 (as signed) </li>
-<li>OF set，如果有符号数溢出 </li>
-<li>lea&#x2F;mov 指令不设置条件码</li>
+<li>例如: addl/addq Src, Dest ↔ t = a+b
+<ul>
+<li>CF set ，如果t溢出</li>
+<li>ZF set ，如果 t == 0 SF</li>
+<li>set ，如果 t &lt; 0 (as signed)</li>
+<li>OF set，如果有符号数溢出</li>
+<li>lea/mov 指令不设置条件码</li>
 </ul>
 </li>
 </ul>
 <p>条件码设置</p>
 <ol>
-<li><p>CMP指令</p>
+<li>
+<p>CMP指令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmpl Src, Dest	;Dest – Src, 影响标志位</span><br></pre></td></tr></table></figure>
-
 <p>cmpl b,a 等价于计算 a-b，但不改变a与b的值。</p>
-<p>CF set 无符号数运算时有进位 </p>
-<p>ZF set 如果 a &#x3D;&#x3D; b </p>
-<p>SF set 如果 有符号数(a-b)&lt; 0 </p>
+<p>CF set 无符号数运算时有进位</p>
+<p>ZF set 如果 a == b</p>
+<p>SF set 如果 有符号数(a-b)&lt; 0</p>
 <p>OF set 如果有符号数运算溢出</p>
 </li>
 </ol>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658953.png" alt="image-20220611165832271" style="zoom:50%;" />
-
-
-
 <ol start="2">
-<li><p>TEST 指令</p>
+<li>
+<p>TEST 指令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">testl Src, Dest		;Dest &amp; Src，影响标志位</span><br><span class="line">testq</span><br></pre></td></tr></table></figure>
-
 <p><code>testl b,a</code> 等价于计算a&amp;b（但不改变a或b的值）</p>
-<p>ZF set 如果a&amp;b&#x3D;&#x3D; 0</p>
+<p>ZF set 如果a&amp;b== 0</p>
 <p>SF set 如果a&amp;b&lt;0</p>
 </li>
-<li><p>SetX 指令</p>
+<li>
+<p>SetX 指令</p>
 <p>根据条件码的组合将一个字节设置为0或1。</p>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658612.png" alt="image-20220611170144525" style="zoom:50%;" /></li>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658612.png" alt="image-20220611170144525" style="zoom:50%;" />
+</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gt</span> <span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>Body</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">movl 12(%ebp),%eax 	# eax = y</span><br><span class="line">cmpl %eax,8(%ebp) 	# Compare x : y</span><br><span class="line">setg %al 			# al = x &gt; y</span><br><span class="line">movzbl %al,%eax 	# Zero rest of %eax</span><br></pre></td></tr></table></figure>
-
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658415.png" alt="image-20220611170257518" style="zoom:50%;" />
-
-
-
-<h4 id="条件分支"><a href="#条件分支" class="headerlink" title="条件分支"></a>条件分支</h4><ol>
-<li><p>跳转指令</p>
+<h4 id="条件分支">条件分支</h4>
+<ol>
+<li>
+<p>跳转指令</p>
 <p>jx 指令：根据不同的条件跳转到某条指令处执行</p>
 </li>
 </ol>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658850.png" alt="image-20220611170527892" style="zoom:50%;" />
-
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658555.png" alt="image-20220611185652894" style="zoom:50%;" />
-
 <ol start="2">
-<li><p>分支跳转：</p>
+<li>
+<p>分支跳转：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val = x&gt;y ? x-y : y-x;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	nt = !Test;</span><br><span class="line">	<span class="keyword">if</span> (nt) <span class="keyword">goto</span> Else;</span><br><span class="line">	val = Then_Expr;</span><br><span class="line">	<span class="keyword">goto</span> Done;</span><br><span class="line">Else:</span><br><span class="line">	val = Else_Expr;</span><br><span class="line">Done;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>为每一个分支都产生一段代码 </li>
+<li>为每一个分支都产生一段代码</li>
 <li>根据条件执行合适的代码段</li>
 </ul>
 </li>
-<li><p>条件传送：</p>
+<li>
+<p>条件传送：</p>
 <ul>
 <li>满足条件才传送</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(Test) Dest&lt;-Src</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tval = Then_Expr;</span><br><span class="line">result = Else_Expr;</span><br><span class="line">t = Test;</span><br><span class="line"><span class="keyword">if</span>(t) result = tval;</span><br><span class="line"><span class="keyword">return</span> result;	</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>先计算一个条件操作的两种结果，然后根据条件 选择某一个</li>
-<li>优势：能够更好的匹配现代处理器的特性 <ul>
-<li>流水线 </li>
+<li>优势：能够更好的匹配现代处理器的特性
+<ul>
+<li>流水线</li>
 <li>分支预测</li>
 </ul>
 </li>
@@ -631,88 +657,79 @@
 </li>
 </ol>
 <blockquote>
-<p>避免了跳转指令 </p>
+<p>避免了跳转指令</p>
 <ul>
-<li>CPU无需做分支预测， 避免预测错误的代价 </li>
+<li>CPU无需做分支预测， 避免预测错误的代价</li>
 <li>流水线效率更高</li>
 </ul>
 </blockquote>
-<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658060.png" alt="image-20220611193809310" style="zoom: 67%;" />
-
+<h4 id="循环">循环</h4>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161658060.png" alt="image-20220611193809310" style="zoom: 67%;" />
 <p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659032.png" alt="image-20220611193821579" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659032.png" alt="image-20220611193821579" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659159.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659032.png" alt="image-20220611193821579" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659159.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659032.png" alt="image-20220611193821579" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659159.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659358.png" alt="image-20220611193821579" style="zoom: 67%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659456.png" alt="image-20220611193837878"><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659032.png" alt="image-20220611193821579" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659159.png" alt="image-20220611193837878"></p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161659159.png" alt="image-20220611193837878" style="zoom:67%;" />
-
-<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><p>跳转表：各个代码段的起始地址</p>
-<h3 id="过程（函数）"><a href="#过程（函数）" class="headerlink" title="过程（函数）"></a>过程（函数）</h3><p>为什么用栈？</p>
+<h4 id="switch">switch</h4>
+<p>跳转表：各个代码段的起始地址</p>
+<h3 id="过程-函数">过程（函数）</h3>
+<p>为什么用栈？</p>
 <p>机器用栈来传递<strong>过程参数</strong>、<strong>存储返回信息</strong>、<strong>保存寄存器</strong>用于以后恢复，以 及<strong>本地存储</strong>。而为单个过程分配的那部分栈称为栈帧（stack frame）。</p>
-<h4 id="栈帧"><a href="#栈帧" class="headerlink" title="栈帧"></a>栈帧</h4><p>每一个函数或过程在执行时，都需要在内存 中分配一个空间来保存运行时数据，这个空间由 于是采用栈的方式进行操作，所以也称为<strong>栈帧</strong>。</p>
+<h4 id="栈帧">栈帧</h4>
+<p>每一个函数或过程在执行时，都需要在内存 中分配一个空间来保存运行时数据，这个空间由 于是采用栈的方式进行操作，所以也称为<strong>栈帧</strong>。</p>
 <ul>
-<li>当前函数或过程的栈顶地址保存在%esp中， 栈底地址保存在<code>%ebp</code>中； </li>
-<li>栈是向<strong>“下”</strong>增长的，或者说是向地址<code>0x0</code>处 增加的，因此 <code>%esp</code> 中的值小于或等于%ebp 中的值； </li>
+<li>当前函数或过程的栈顶地址保存在%esp中， 栈底地址保存在<code>%ebp</code>中；</li>
+<li>栈是向**“下”**增长的，或者说是向地址<code>0x0</code>处 增加的，因此 <code>%esp</code> 中的值小于或等于%ebp 中的值；</li>
 <li>栈帧是内存中一段<strong>连续的</strong>内存空间；</li>
 <li>被调用者的栈帧紧挨着调用者的栈帧；</li>
 </ul>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161702787.png" alt="image-20220611200816982" style="zoom:80%;" />
-
-
-
 <p>构造玩传递参数之后准备调用 sum，首先保存一个返回地址</p>
 <p>sum栈帧的初始化</p>
 <p>保存老的ebp</p>
 <blockquote>
-<p> 调用：从传递参数区取出参数，而不是局部参数区，这样可以有效利用 %ebp + n</p>
+<p>调用：从传递参数区取出参数，而不是局部参数区，这样可以有效利用 %ebp + n</p>
 </blockquote>
 <img src="C:\Users\a1036\Desktop\计算机系统\计算机系统复习.assets\image-20220611203202241.png" alt="image-20220611203202241" style="zoom:50%;" />
-
-
-
 <p>ebp上面保存的是调用sum函数的函数的老的 %ebp，和上一个函数的返回地址。</p>
 <p>sum栈帧的返回</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703118.png" alt="image-20220611203838637" style="zoom:50%;" />
-
 <ol>
 <li>leave ： 把 old ebp 弹回给 ebp，使其恢复到主函数栈帧栈底的位置</li>
 <li>return：把返回地址弹给 <code>%eip</code> ，使得主函数能够继续执行调用sum函数之后的指令。</li>
 </ol>
-<h4 id="嵌套与递归"><a href="#嵌套与递归" class="headerlink" title="嵌套与递归"></a>嵌套与递归</h4><p>嵌套</p>
+<h4 id="嵌套与递归">嵌套与递归</h4>
+<p>嵌套</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703485.png" alt="image-20220611204452223" style="zoom:50%;" />
-
 <p>递归</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703288.png" alt="image-20220611204531754" style="zoom:50%;" />
-
-<h4 id="swap-函数"><a href="#swap-函数" class="headerlink" title="swap 函数"></a>swap 函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *xp,<span class="type">int</span> *yp)</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> t0 = *xp;</span><br><span class="line"><span class="type">int</span> t1 = *yp;</span><br><span class="line">*xp = t1;</span><br><span class="line">*yp = t0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="swap-函数">swap 函数</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *xp,<span class="type">int</span> *yp)</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> t0 = *xp;</span><br><span class="line"><span class="type">int</span> t1 = *yp;</span><br><span class="line">*xp = t1;</span><br><span class="line">*yp = t0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">movl 8(%ebp), %edx # edx = xp</span><br><span class="line">movl 12(%ebp),%ecx # ecx = yp</span><br><span class="line">movl (%edx), %ebx # ebx = *xp(t0)</span><br><span class="line">movl (%ecx), %eax # eax = *yp(t1)</span><br><span class="line">movl %eax, (%edx) # *xp = t1</span><br><span class="line">movl %ebx, (%ecx) # *yp = t0</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<h4 id="小结">小结</h4>
+<ul>
 <li>过程及函数调用， 都是通过 栈来实现</li>
-<li>每次调用时的参数按照 固定顺序存放在栈中； 过程&#x2F;函数内部的变量 存放顺序 与编译器有关</li>
-<li>过程&#x2F;函数执行完毕后， 会释放其所占用的栈空间 。</li>
+<li>每次调用时的参数按照 固定顺序存放在栈中； 过程/函数内部的变量 存放顺序 与编译器有关</li>
+<li>过程/函数执行完毕后， 会释放其所占用的栈空间 。</li>
 <li>对返回地址 及保存的 ebp的修改会导致程序 错误和崩溃，常被用来 作为黑客攻击手段。</li>
 </ul>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>基本原则：在内存中连续分配</p>
+<h3 id="数据">数据</h3>
+<h4 id="数组">数组</h4>
+<p>基本原则：在内存中连续分配</p>
 <p>连续声明的数组内存地址一般也是连续分配</p>
 <p>访问：</p>
 <blockquote>
 <p>声明 “zip_dig cmu” 等价于“int cmu[5]”</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">get_digit</span></span><br><span class="line"><span class="params">(zip_dig z, <span class="type">int</span> dig)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> z[dig];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># %edx = z</span><br><span class="line"># %eax = dig</span><br><span class="line">movl (%edx,%eax,4),%eax # z[dig]</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>寄存器 %edx 中存储 数组的起始地址 </li>
-<li>寄存器 %eax中保存了 数组元素下标值 </li>
-<li>需要访问的数据地址为 4*%eax + %edx </li>
+<li>寄存器 %edx 中存储 数组的起始地址</li>
+<li>寄存器 %eax中保存了 数组元素下标值</li>
+<li>需要访问的数据地址为 4*%eax + %edx</li>
 <li>内存寻址方式： (%edx,%eax,4)</li>
 </ul>
 <hr>
-<h5 id="循环访问数组："><a href="#循环访问数组：" class="headerlink" title="循环访问数组："></a>循环访问数组：</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">zincr</span><span class="params">(zip_dig z)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; ZLEN; i++)	#数组长度是<span class="number">5</span></span><br><span class="line">		z[i]++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h5 id="循环访问数组：">循环访问数组：</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">zincr</span><span class="params">(zip_dig z)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; ZLEN; i++)	#数组长度是<span class="number">5</span></span><br><span class="line">		z[i]++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	# edx = z</span><br><span class="line">	movl $0, %eax 			# %eax = i</span><br><span class="line">.L4: 						# loop:</span><br><span class="line">	addl $1, (%edx,%eax,4) 	# z[i]++</span><br><span class="line">	addl $1, %eax 			# i++</span><br><span class="line">	cmpl $5, %eax 			# i:5 数组长度为5</span><br><span class="line">	jne .L4 				# if !=, goto loop</span><br></pre></td></tr></table></figure>
-
 <hr>
 <p>二维数组</p>
 <blockquote>
@@ -720,62 +737,65 @@
 </blockquote>
 <p>变量 pgh: 含有四个元素的数组，每个元素都是一个包含五 个整数的数组——值得注意的是，这些元素在内存中是连 续分配的</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703553.png" alt="image-20220611210941321" style="zoom:50%;" />
-
-
-
-
-
-<h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>C语言中的结构 </p>
+<h4 id="结构">结构</h4>
+<p>C语言中的结构</p>
 <ul>
-<li>内存连续分配 </li>
-<li>通过结构的名称与成员名称来访问数据 </li>
+<li>内存连续分配</li>
+<li>通过结构的名称与成员名称来访问数据</li>
 <li>结构中可能包括不同数据类型的成员</li>
 </ul>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703693.png" alt="image-20220611211044595" style="zoom: 67%;" />
-
 <hr>
 <p>访问：</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703957.png" alt="image-20220611211139892" style="zoom:50%;" />
-
-
-
 <hr>
 <p>结构与对齐</p>
 <p>数据对齐 ：要求数据地址必须是 K的整数倍（K一般为4或8）</p>
 <p>空字节填充</p>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703428.png" alt="image-20220611211634037" style="zoom:50%;" />
-
-
-
-<h4 id="联合"><a href="#联合" class="headerlink" title="联合"></a>联合</h4><p>根据最大的元素来分配内存空间</p>
-<h2 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h2><h3 id="存储技术"><a href="#存储技术" class="headerlink" title="存储技术"></a>存储技术</h3><h4 id="随机存储器RAM"><a href="#随机存储器RAM" class="headerlink" title="随机存储器RAM"></a>随机存储器RAM</h4><p>SRAM</p>
+<h4 id="联合">联合</h4>
+<p>根据最大的元素来分配内存空间</p>
+<h2 id="存储器层次结构">存储器层次结构</h2>
+<h3 id="存储技术">存储技术</h3>
+<h4 id="随机存储器ram">随机存储器RAM</h4>
+<p>SRAM</p>
 <p>DRAM</p>
-<h4 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h4><h4 id="固态硬盘SSD"><a href="#固态硬盘SSD" class="headerlink" title="固态硬盘SSD"></a>固态硬盘SSD</h4><h3 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h3><blockquote>
+<h4 id="磁盘">磁盘</h4>
+<h4 id="固态硬盘ssd">固态硬盘SSD</h4>
+<h3 id="局部性">局部性</h3>
+<blockquote>
 <p>缓解了CPU-主存执行速度差异</p>
 </blockquote>
 <p>局部性原理: 一个编写良好的程序倾向于引用最近引用过的数据本身，或 者引用的数据项邻近于其最近引用过的数据项</p>
 <ul>
-<li>时间局部性(Temporal locality):  <ul>
+<li>时间局部性(Temporal locality):
+<ul>
 <li>最近被引用过的数据很可能很快会被多次引用</li>
 </ul>
 </li>
-<li>空间局部性(Spatial locality):  <ul>
+<li>空间局部性(Spatial locality):
+<ul>
 <li>一个存储位置被引用了一次，很可能很快其 附近存储位置也会被引用</li>
 </ul>
 </li>
 </ul>
-<h3 id="存储器的层次结构"><a href="#存储器的层次结构" class="headerlink" title="存储器的层次结构"></a>存储器的层次结构</h3><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703157.png" alt="image-20220611213500557" style="zoom:50%;" />
-
-<h4 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h4><ul>
+<h3 id="存储器的层次结构">存储器的层次结构</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206161703157.png" alt="image-20220611213500557" style="zoom:50%;" />
+<h4 id="高速缓存">高速缓存</h4>
+<ul>
 <li><strong>高速缓存Cache</strong>: 一个小而快的存储设备，它作为存储在更大、更慢的设备中的 数据对象的缓冲区域</li>
 </ul>
 <p>小结：</p>
 <ul>
-<li>CPU与主存及大容量 存储设备之间的速度 差异持续扩大 </li>
-<li>编写良好的程序应 具有良好的局部性 </li>
+<li>CPU与主存及大容量 存储设备之间的速度 差异持续扩大</li>
+<li>编写良好的程序应 具有良好的局部性</li>
 <li>存储层次正是应用 局部性原理，基于缓 存，以缩小前述差异</li>
 </ul>
-<h3 id="高速缓存-1"><a href="#高速缓存-1" class="headerlink" title="高速缓存"></a>高速缓存</h3><h4 id="什么是高速缓冲器"><a href="#什么是高速缓冲器" class="headerlink" title="什么是高速缓冲器"></a>什么是高速缓冲器</h4><h4 id="高速缓存的结构与读写"><a href="#高速缓存的结构与读写" class="headerlink" title="高速缓存的结构与读写"></a>高速缓存的结构与读写</h4><h4 id="高速缓存与性能"><a href="#高速缓存与性能" class="headerlink" title="高速缓存与性能"></a>高速缓存与性能</h4><p>………………</p>
+<h3 id="高速缓存">高速缓存</h3>
+<h4 id="什么是高速缓冲器">什么是高速缓冲器</h4>
+<h4 id="高速缓存的结构与读写">高速缓存的结构与读写</h4>
+<h4 id="高速缓存与性能">高速缓存与性能</h4>
+<p>………………</p>
  
       <!-- reward -->
       

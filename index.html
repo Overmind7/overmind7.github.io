@@ -44,7 +44,7 @@
         }
       </style>
     <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -199,11 +199,12 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>渐进符号</p>
+  <h1>算法分析</h1>
+<p>渐进符号</p>
 <p>算法效率的主要指标是基本操作次数的增长次数</p>
-<p>&#x3D;&#x3D;<em><strong>O</strong></em>（读“O”）：上界&#x3D;&#x3D;</p>
+<p>==<em><strong>O</strong></em>（读“O”）：上界==</p>
 <p><em><strong>Ω</strong></em>（读”omega”）：下界</p>
-<p>&#x3D;&#x3D;<em><strong>Θ</strong></em>（读”theta”）：近似&#x3D;&#x3D;</p>
+<p>==<em><strong>Θ</strong></em>（读”theta”）：近似==</p>
 <blockquote>
 <p>主要：最差和平均</p>
 </blockquote> 
@@ -258,7 +259,7 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2> 
+  <h2 id="基础知识">基础知识</h2> 
       <a class="article-more-link" href="/2022/06/11/2022%E6%98%A5%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/"
         >阅读更多...</a
       >
@@ -314,21 +315,19 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在n个人中，某些人的银行账号之间可以互相转账。这些人之间转账的手续费各不相同。给定这些人之间转账时需要从转账金额里扣除百分之几的手续费，请问A最少需要多少钱使得转账后B收到100元。</p>
+  <h2 id="问题">问题</h2>
+<p>在n个人中，某些人的银行账号之间可以互相转账。这些人之间转账的手续费各不相同。给定这些人之间转账时需要从转账金额里扣除百分之几的手续费，请问A最少需要多少钱使得转账后B收到100元。</p>
 <p><strong>输入</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一行输入两个正整数n,m，分别表示总人数和可以互相转账的人的对数。</span><br><span class="line">以下m行每行输入三个正整数x,y,z，表示标号为x的人和标号为y的人之间互相转账需要扣除z%的手续费(z&lt;100)。</span><br><span class="line">最后一行输入两个正整数A,B。数据保证A与B之间可以直接或间接地转账。</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>注意： 2&lt;&#x3D;N&lt;&#x3D;20，1&lt;&#x3D;M&lt;&#x3D;20，1&lt;&#x3D;Q&lt;&#x3D;100</p>
+<p>注意： 2&lt;=N&lt;=20，1&lt;=M&lt;=20，1&lt;=Q&lt;=100</p>
 </blockquote>
 <p><strong>输出</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出A使得B到账100元最少需要的总费用。精确到小数点后8位。</span><br></pre></td></tr></table></figure>
-
 <p><strong>样例分析</strong></p>
-<p>【样例输入】  </p>
+<p>【样例输入】</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<p>【样例输出】 </p>
+<p>【样例输出】</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">103.07153164</span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2022/05/19/%E5%9B%BE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/"
         >阅读更多...</a
@@ -385,8 +384,10 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="ReLU-Rectified-Linear-Unit-修正线性单元"><a href="#ReLU-Rectified-Linear-Unit-修正线性单元" class="headerlink" title="ReLU(Rectified Linear Unit,修正线性单元)"></a>ReLU(Rectified Linear Unit,修正线性单元)</h2><p>形式：</p>
-<p>$$<br>f\left ( x \right ) &#x3D;\left{\begin{matrix}<br>                            0,	&amp;   x\le 0<br>                            \<br>                            x,	&amp;	x&gt;0<br>\end{matrix}\right.<br>$$</p> 
+  <h2 id="relu-rectified-linear-unit-修正线性单元">ReLU(Rectified Linear Unit,修正线性单元)</h2>
+<p>形式：</p>
+<p>​																<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo fence="true">(</mo><mi>x</mi><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>≤</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f\left ( x \right ) =\left\{\begin{matrix}0,&amp;x\le 0\\ x,	&amp;	x&gt;0
+\end{matrix}\right.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault">x</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">{</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mpunct">,</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p> 
       <a class="article-more-link" href="/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
         >阅读更多...</a
       >
@@ -401,6 +402,119 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" rel="tag">激活函数</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/"
+    >CoAtNet: Marrying Convolution and Attention for All Data Size</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/" class="article-date">
+  <time datetime="2022-02-13T16:00:00.000Z" itemprop="datePublished">2022-02-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a> / <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171052547.png" alt="image-20220617105209506" style="zoom:80%;" />
+<blockquote>
+<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04803">2106.04803] CoAtNet: Marrying Convolution and Attention for All Data Sizes (arxiv.org)</a></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transformer/" rel="tag">transformer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%B7%E7%A7%AF/" rel="tag">卷积</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B/" rel="tag">混合模型</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-VIT"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/08/VIT/"
+    >VIT</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/08/VIT/" class="article-date">
+  <time datetime="2022-02-08T01:27:21.000Z" itemprop="datePublished">2022-02-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a> / <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944322.gif" style="zoom: 33%;" /> 
+      <a class="article-more-link" href="/2022/02/08/VIT/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cv/" rel="tag">cv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transformer/" rel="tag">transformer</a></li></ul>
 
     </footer>
   </div>
@@ -442,16 +556,21 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="自注意力"><a href="#自注意力" class="headerlink" title="自注意力"></a>自注意力</h2><ul>
-<li><p>自注意力池化将层 xi 当作key，value，query来对序列抽取特征</p>
+  <p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944160.gif" alt=""></p>
+<h2 id="自注意力">自注意力</h2>
+<ul>
+<li>
+<p>自注意力池化将层 xi 当作key，value，query来对序列抽取特征</p>
 <ul>
 <li>完全并行、最长序列为1、但对长序列计算复杂度高</li>
 </ul>
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212624.png" alt="image-20220616221239595" style="zoom:50%;" />
 </li>
-<li><p>位置编码</p>
+<li>
+<p>位置编码</p>
 <ul>
-<li><p>与CNN&#x2F;RNN不同，自注意力没用记录位置信息 
+<li>
+<p>与CNN/RNN不同，自注意力没用记录位置信息 
       <a class="article-more-link" href="/2022/01/18/Transformers/"
         >阅读更多...</a
       >
@@ -504,11 +623,12 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p> 
       <a class="article-more-link" href="/2021/09/02/hello-world/"
         >阅读更多...</a

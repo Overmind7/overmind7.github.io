@@ -44,7 +44,7 @@
         }
       </style>
     <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">817</span>
+            <span class="post-count">875</span>
         </span>
     </span>
 
@@ -111,34 +111,54 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="ReLU-Rectified-Linear-Unit-修正线性单元"><a href="#ReLU-Rectified-Linear-Unit-修正线性单元" class="headerlink" title="ReLU(Rectified Linear Unit,修正线性单元)"></a>ReLU(Rectified Linear Unit,修正线性单元)</h2><p>形式：</p>
-<p>$$<br>f\left ( x \right ) &#x3D;\left{\begin{matrix}<br>                            0,	&amp;   x\le 0<br>                            \<br>                            x,	&amp;	x&gt;0<br>\end{matrix}\right.<br>$$</p>
+  <h2 id="relu-rectified-linear-unit-修正线性单元">ReLU(Rectified Linear Unit,修正线性单元)</h2>
+<p>形式：</p>
+<p>​																<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo fence="true">(</mo><mi>x</mi><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>≤</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f\left ( x \right ) =\left\{\begin{matrix}0,&amp;x\le 0\\ x,	&amp;	x&gt;0
+\end{matrix}\right.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault">x</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">{</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mpunct">,</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <span id="more"></span>
-
-
-<h3 id="ReLU的稀疏性-2"><a href="#ReLU的稀疏性-2" class="headerlink" title="ReLU的稀疏性[^2]"></a><strong>ReLU的稀疏性</strong>[^2]</h3><blockquote>
-<p>当前，深度学习一个明确的目标是从数据变量中解离出关键因子。原始数据（以自然数据为主）中通常缠绕着高度密集的特征。然而，如果能够解开特征间缠绕的复杂关系，转换为稀疏特征，那么特征就有了鲁棒性（去掉了无关的噪声）。稀疏特征并不需要网络具有很强的处理线性不可分机制。那么在深度网络中，对非线性的依赖程度就可以缩一缩。一旦神经元与神经元之间改为线性激活，网络的<em>非线性部分</em>仅仅来自于神经元部分选择性激活。<br>对比大脑工作的95%稀疏性来看，现有的计算神经网络和生物神经网络还是有很大差距的。庆幸的是，ReLu只有负值才会被稀疏掉，即引入的稀疏性是可以训练调节的，是动态变化的。只要进行梯度训练，网络可以向误差减少的方向，自动调控稀疏比率，保证激活链上存在着合理数量的非零值。</p>
+<h3 id="relu的稀疏性-2"><strong>ReLU的稀疏性</strong>[^2]</h3>
+<blockquote>
+<p>当前，深度学习一个明确的目标是从数据变量中解离出关键因子。原始数据（以自然数据为主）中通常缠绕着高度密集的特征。然而，如果能够解开特征间缠绕的复杂关系，转换为稀疏特征，那么特征就有了鲁棒性（去掉了无关的噪声）。稀疏特征并不需要网络具有很强的处理线性不可分机制。那么在深度网络中，对非线性的依赖程度就可以缩一缩。一旦神经元与神经元之间改为线性激活，网络的<em>非线性部分</em>仅仅来自于神经元部分选择性激活。<br>
+对比大脑工作的95%稀疏性来看，现有的计算神经网络和生物神经网络还是有很大差距的。庆幸的是，ReLu只有负值才会被稀疏掉，即引入的稀疏性是可以训练调节的，是动态变化的。只要进行梯度训练，网络可以向误差减少的方向，自动调控稀疏比率，保证激活链上存在着合理数量的非零值。</p>
 </blockquote>
-<h3 id="ReLU-的缺点"><a href="#ReLU-的缺点" class="headerlink" title="ReLU 的缺点"></a>ReLU 的缺点</h3><ul>
-<li><p>坏死: ReLU 强制的稀疏处理会减少模型的有效容量（即特征屏蔽太多，导致模型无法学习到有效特征）。由于ReLU在x &lt; 0时梯度为0，这样就导致负的梯度在这个ReLU被置零，而且这个神经元有可能再也不会被任何数据激活，称为神经元“坏死”。</p>
+<h3 id="relu-的缺点">ReLU 的缺点</h3>
+<ul>
+<li>
+<p>坏死: ReLU 强制的稀疏处理会减少模型的有效容量（即特征屏蔽太多，导致模型无法学习到有效特征）。由于ReLU在x &lt; 0时梯度为0，这样就导致负的梯度在这个ReLU被置零，而且这个神经元有可能再也不会被任何数据激活，称为神经元“坏死”。</p>
 </li>
-<li><p>无负值: ReLU和sigmoid的一个相同点是结果是正值，没有负值.</p>
+<li>
+<p>无负值: ReLU和sigmoid的一个相同点是结果是正值，没有负值.</p>
 </li>
 </ul>
-<h2 id="ReLU变种"><a href="#ReLU变种" class="headerlink" title="ReLU变种"></a>ReLU变种</h2><h3 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h3><h3 id="指数线性单元ELU"><a href="#指数线性单元ELU" class="headerlink" title="指数线性单元ELU"></a>指数线性单元ELU</h3><h3 id="SELU"><a href="#SELU" class="headerlink" title="SELU"></a>SELU</h3><h2 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h2><h2 id="GELU"><a href="#GELU" class="headerlink" title="GELU"></a>GELU</h2><h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><h2 id="sigmoid-与-tanh"><a href="#sigmoid-与-tanh" class="headerlink" title="sigmoid 与 tanh"></a>sigmoid 与 tanh</h2><h4 id="为什么tanh相比sigmoid收敛更快"><a href="#为什么tanh相比sigmoid收敛更快" class="headerlink" title="为什么tanh相比sigmoid收敛更快:"></a>为什么tanh相比sigmoid收敛更快:</h4><ol>
-<li><p>梯度消失问题</p>
-<p>$\tanh’( x ) &#x3D; 1-\tanh( x )^2 \in (0,1)$</p>
-<p>$\text{sigmoid: } s’(x)&#x3D;s(x)\times(1-s(x))\in(0,1&#x2F;4)$</p>
+<h2 id="relu变种">ReLU变种</h2>
+<h3 id="leaky-relu">Leaky ReLU</h3>
+<h3 id="指数线性单元elu">指数线性单元ELU</h3>
+<h3 id="selu">SELU</h3>
+<h2 id="swish">Swish</h2>
+<h2 id="gelu">GELU</h2>
+<h2 id="maxout">Maxout</h2>
+<h2 id="sigmoid-与-tanh">sigmoid 与 tanh</h2>
+<h4 id="为什么tanh相比sigmoid收敛更快">为什么tanh相比sigmoid收敛更快:</h4>
+<ol>
+<li>
+<p>梯度消失问题</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mo><mi>tanh</mi><mo>⁡</mo></mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>tanh</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\tanh&#x27;( x ) = 1-\tanh( x )^2 \in (0,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0862319999999999em;vertical-align:-0.25em;"></span><span class="mop"><span class="mop">tanh</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.836232em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mop">tanh</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>sigmoid: </mtext><msup><mi>s</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>4</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{sigmoid: } s&#x27;(x)=s(x)\times(1-s(x))\in(0,1/4)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">sigmoid: </span></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">4</span><span class="mclose">)</span></span></span></span></p>
 <p>可以看出tanh(x)的梯度消失问题比sigmoid要轻.梯度如果过早消失,收敛速度较慢.</p>
 </li>
-<li><p>以零为中心的影响<br>如果当前参数(w0,w1)的最佳优化方向是(+d0, -d1),则根据反向传播计算公式,我们希望 x0 和 x1 符号相反。但是如果上一级神经元采用 Sigmoid 函数作为激活函数，sigmoid不以0为中心，输出值恒为正，那么我们无法进行最快的参数更新，而是走 Z 字形逼近最优解。<a target="_blank" rel="noopener" href="http://mathforum.org/library/drmath/view/54179.html">^1</a></p>
+<li>
+<p>以零为中心的影响<br>
+如果当前参数(w0,w1)的最佳优化方向是(+d0, -d1),则根据反向传播计算公式,我们希望 x0 和 x1 符号相反。但是如果上一级神经元采用 Sigmoid 函数作为激活函数，sigmoid不以0为中心，输出值恒为正，那么我们无法进行最快的参数更新，而是走 Z 字形逼近最优解。<a target="_blank" rel="noopener" href="http://mathforum.org/library/drmath/view/54179.html">^1</a></p>
 </li>
 </ol>
-<h2 id="激活函数作用"><a href="#激活函数作用" class="headerlink" title="激活函数作用"></a>激活函数作用</h2><h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><h2 id="激活函数选择"><a href="#激活函数选择" class="headerlink" title="激活函数选择"></a>激活函数选择</h2><ol>
+<h2 id="激活函数作用">激活函数作用</h2>
+<h2 id="梯度消失与梯度爆炸">梯度消失与梯度爆炸</h2>
+<h2 id="激活函数选择">激活函数选择</h2>
+<ol>
 <li>首先尝试ReLU,速度快,但要注意训练的状态.</li>
 <li>如果ReLU效果欠佳,尝试Leaky ReLU或Maxout等变种。</li>
 <li>尝试tanh正切函数(以零点为中心,零点处梯度为1)</li>
-<li>sigmoid&#x2F;tanh在RNN（LSTM、注意力机制等）结构中有所应用，作为门控或者概率值。</li>
+<li>sigmoid/tanh在RNN（LSTM、注意力机制等）结构中有所应用，作为门控或者概率值。</li>
 <li>在浅层神经网络中，如不超过4层的，可选择使用多种激励函数，没有太大的影响。</li>
 </ol>
 <blockquote>
@@ -220,9 +240,9 @@
       </a>
     
     
-      <a href="/2022/01/18/Transformers/" class="article-nav-link">
+      <a href="/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Transformer</div>
+        <div class="article-nav-title">CoAtNet: Marrying Convolution and Attention for All Data Size</div>
       </a>
     
   </nav>
