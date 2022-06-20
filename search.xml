@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2022-6-10</title>
+    <url>/2022/06/20/2022-6-10/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="3a1d7d3831e58c9c2c87559771cf20a5c2cbc1a88ea6afcec29ddd0ffaadc92c">3757591a001914bec15e16449f8d28368fc88423040fa9c0bdf246601b75dcca</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2022数据结构与算法春复习</title>
     <url>/2022/06/13/2022%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%98%A5%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1>算法分析</h1>
@@ -661,6 +684,30 @@ L————|——————R<br>
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Image Super-Resolution via Iterative Refinement</title>
+    <url>/2022/03/02/Image-Super-Resolution-via-Iterative-Refinement/</url>
+    <content><![CDATA[<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939072.png" alt="image-20220617193939032" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939000.png" alt="image-20220617193954970" style="zoom:67%;" />
+<span id="more"></span>
+<blockquote>
+<p><a href="https://iterative-refinement.github.io/">SR3: Iterative Image Enhancement (iterative-refinement.github.io)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/366004028">另辟蹊径</a><a href="https://zhuanlan.zhihu.com/p/366004028">—Denoising Diffusion Probabilistic </a><a href="https://zhuanlan.zhihu.com/p/366004028">一种从噪音中剥离出图像</a><a href="https://zhuanlan.zhihu.com/p/366004028">/</a><a href="https://zhuanlan.zhihu.com/p/366004028">音频的模型 </a><a href="https://zhuanlan.zhihu.com/p/366004028">- </a><a href="https://zhuanlan.zhihu.com/p/366004028">知乎 </a><a href="https://zhuanlan.zhihu.com/p/366004028">(zhihu.com)</a></p>
+<p><a href="https://blog.csdn.net/g11d111/article/details/118026427">生成模型新方向</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/444218616">SR3:Image Super-Resolution via Iterative Refinement - </a><a href="https://zhuanlan.zhihu.com/p/444218616">知乎 </a><a href="https://zhuanlan.zhihu.com/p/444218616">(zhihu.com)</a></p>
+<p><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">Denoising Diffusion Probabilistic Models (DDPM) - </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">馒头</a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">and</a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">花卷 </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">- </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">博客园 </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">(cnblogs.com)</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>cv</tag>
+        <tag>生成模型</tag>
+        <tag>图像超分辨率</tag>
       </tags>
   </entry>
   <entry>
@@ -1359,50 +1406,6 @@ L————|——————R<br>
       <tags>
         <tag>计算机系统</tag>
         <tag>汇编</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CoAtNet: Marrying Convolution and Attention for All Data Size</title>
-    <url>/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/</url>
-    <content><![CDATA[<span id="more"></span>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171052547.png" alt="image-20220617105209506" style="zoom:80%;" />
-<blockquote>
-<p>[<a href="https://arxiv.org/abs/2106.04803">2106.04803] CoAtNet: Marrying Convolution and Attention for All Data Sizes (arxiv.org)</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>计算机视觉</category>
-        <category>架构</category>
-      </categories>
-      <tags>
-        <tag>transformer</tag>
-        <tag>卷积</tag>
-        <tag>混合模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Image Super-Resolution via Iterative Refinement</title>
-    <url>/2022/03/02/Image-Super-Resolution-via-Iterative-Refinement/</url>
-    <content><![CDATA[<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939072.png" alt="image-20220617193939032" style="zoom:80%;" />
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939000.png" alt="image-20220617193954970" style="zoom:67%;" />
-<span id="more"></span>
-<blockquote>
-<p><a href="https://iterative-refinement.github.io/">SR3: Iterative Image Enhancement (iterative-refinement.github.io)</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/366004028">另辟蹊径</a><a href="https://zhuanlan.zhihu.com/p/366004028">—Denoising Diffusion Probabilistic </a><a href="https://zhuanlan.zhihu.com/p/366004028">一种从噪音中剥离出图像</a><a href="https://zhuanlan.zhihu.com/p/366004028">/</a><a href="https://zhuanlan.zhihu.com/p/366004028">音频的模型 </a><a href="https://zhuanlan.zhihu.com/p/366004028">- </a><a href="https://zhuanlan.zhihu.com/p/366004028">知乎 </a><a href="https://zhuanlan.zhihu.com/p/366004028">(zhihu.com)</a></p>
-<p><a href="https://blog.csdn.net/g11d111/article/details/118026427">生成模型新方向</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/444218616">SR3:Image Super-Resolution via Iterative Refinement - </a><a href="https://zhuanlan.zhihu.com/p/444218616">知乎 </a><a href="https://zhuanlan.zhihu.com/p/444218616">(zhihu.com)</a></p>
-<p><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">Denoising Diffusion Probabilistic Models (DDPM) - </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">馒头</a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">and</a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">花卷 </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">- </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">博客园 </a><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">(cnblogs.com)</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>cv</tag>
-        <tag>生成模型</tag>
-        <tag>图像超分辨率</tag>
       </tags>
   </entry>
   <entry>
@@ -2140,9 +2143,187 @@ L————|——————R<br>
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>transformer</tag>
         <tag>cv</tag>
+        <tag>transformer</tag>
         <tag>nlp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VIT</title>
+    <url>/2022/02/08/VIT/</url>
+    <content><![CDATA[<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944322.gif" style="zoom: 33%;" />
+<span id="more"></span>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170937881.png" alt="image-20220617093716829" style="zoom:80%;" />
+<blockquote>
+<p><a href="https://ai.googleblog.com/2020/12/transformers-for-image-recognition-at.html">Google AI Blog: Transformers for Image Recognition at Scale (googleblog.com)</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>计算机视觉</category>
+        <category>架构</category>
+      </categories>
+      <tags>
+        <tag>cv</tag>
+        <tag>transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PloyViT</title>
+    <url>/2022/03/24/PloyViT/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201134581.png" alt="image-20220620113455526"></p>
+<span id="more"></span>
+<p>当 Lshared = L 时，参数总数减少大约 n 倍</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135038.png" alt="image-20220620113520024" style="zoom:67%;" />
+<h2 id="联合训练过程">联合训练过程</h2>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135895.png" alt="image-20220620113550863"></p>
+<p>使用随机梯度下降 (SGD) 训练所有任务，同时优化所有 PolyViT 模型参数θ</p>
+<p><u>如何构建训练批次?</u></p>
+<h3 id="协同训练">协同训练</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138668.png" alt="image-20220620113802632" style="zoom:80%;" />
+<h3 id="ployvit-base-协同训练">PloyViT-Base 协同训练</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138940.png" alt="image-20220620113806903" style="zoom:80%;" />
+<h3 id="单任务">单任务</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138808.png" alt="image-20220620113812763" style="zoom:80%;" />
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/448377212">超神！全能视觉</a><a href="https://zhuanlan.zhihu.com/p/448377212">Transformer</a><a href="https://zhuanlan.zhihu.com/p/448377212">：</a><a href="https://zhuanlan.zhihu.com/p/448377212">PolyViT</a><a href="https://zhuanlan.zhihu.com/p/448377212">！协同多模态图像、视频、音频</a><a href="https://zhuanlan.zhihu.com/p/448377212">SOTA</a><a href="https://zhuanlan.zhihu.com/p/448377212">！谷歌、剑桥大学、图灵研究院出品！ </a><a href="https://zhuanlan.zhihu.com/p/448377212">- </a><a href="https://zhuanlan.zhihu.com/p/448377212">知乎 </a><a href="https://zhuanlan.zhihu.com/p/448377212">(zhihu.com)</a></p>
+<p><a href="https://arxiv.org/pdf/2111.12993.pdf">https://arxiv.org/pdf/2111.12993.pdf</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>计算机视觉</category>
+        <category>架构</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+        <tag>计算机视觉</tag>
+        <tag>多模态</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CoAtNet: Marrying Convolution and Attention for All Data Size</title>
+    <url>/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/</url>
+    <content><![CDATA[<span id="more"></span>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171052547.png" alt="image-20220617105209506" style="zoom:80%;" />
+<blockquote>
+<p>[<a href="https://arxiv.org/abs/2106.04803">2106.04803] CoAtNet: Marrying Convolution and Attention for All Data Sizes (arxiv.org)</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>计算机视觉</category>
+        <category>架构</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+        <tag>卷积</tag>
+        <tag>混合模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<span id="more"></span>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>以太坊</title>
+    <url>/2022/04/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A/</url>
+    <content><![CDATA[<h1>以太坊概述</h1>
+<p>区块链2.0</p>
+<p>ETHsd</p>
+<span id="more"></span>
+<h1>ETH 账户</h1>
+<h1>ETH 数据结构</h1>
+<h2 id="eth-状态树">ETH　状态树</h2>
+<blockquote>
+<p>Modified MPT</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181736698.png" alt="image-20220420164220341" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737883.png" alt="image-20220420164523672" style="zoom:67%;" />
+<blockquote>
+<p>为什么要保存历史状态？为何不直接修改？</p>
+<p>为了便于回滚 roll back。eth临时性的分叉是常态</p>
+<p>如下1中产生分叉，而后上面节点胜出，变为2中状态。那么，下面节点中状态的修改便需要进行回滚。因此，需要维护这些历史记录。</p>
+<img src="https://img-blog.csdnimg.cn/20200225193738472.png" alt="在这里插入图片描述" style="zoom: 67%;" />
+<p>简单的转账交易能够直接简单回滚，但是以太坊种有智能合约。</p>
+<p>ETH 的智能合约是图灵完备的。</p>
+</blockquote>
+<h3 id="eth-块头">ETH 块头</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737110.png" alt="在这里插入图片描述" style="zoom:100%;" />
+<h3 id="区块结构">区块结构</h3>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181734553.png" alt="image-20220420203214173"></p>
+<h3 id="区块在网上真正发布时的信息">区块在网上真正发布时的信息</h3>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737793.png" alt="在这里插入图片描述"></p>
+<h3 id="key-value对">Key-value对</h3>
+<p>状态树中保存Key-value对，key就是地址，而value状态通过RLP(Recursive Length Prefix，一种进行序列化的方法)编码序列号之后再进行存储。</p>
+<p><a href="https://blog.csdn.net/qq_40792869/article/details/89026738">什么是序列化</a></p>
+<p><a href="https://www.cnblogs.com/zhizaixingzou/p/10122380.html">以太坊：底层序列化编码方式RLP </a></p>
+<h2 id="eth-交易树">ETH 交易树</h2>
+<h2 id="eth-收据树">ETH 收据树</h2>
+<h1>GHOST 协议</h1>
+<p>BTC系统中出块时间为10min，而以太坊中出块时间被降低到15s左右，虽然有效提高了系统反应时间和吞吐率，却也导致系统临时性分叉变成常态，且分叉数目更多。这对于共识协议来说，就存在很大挑战。在BTC系统中，不在最长合法链上的节点最后都是作废的，但如果在以太坊系统中，如果这样处理，由于系统中经常性会出现分叉，则矿工挖到矿很大可能会被废弃，这会大大降低矿工挖矿积极性。而对于个人矿工来说，和大型矿池相比更是存在天然劣势。<br>
+对此，以太坊设计了新的公式协议——GHOST协议</p>
+<blockquote>
+<p>(该协议并非原创，而是对原本就有的Ghost协议进行了改进)。</p>
+</blockquote>
+<blockquote>
+<p>动机：比特币共识机制的问题</p>
+<p>大型矿池获得与其算力比例不匹配的收益</p>
+<p>mining centralization</p>
+<p>centralization bias</p>
+</blockquote>
+<h2 id="最初的ghost协议">最初的GHOST协议</h2>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737997.png" alt="在这里插入图片描述"></p>
+<p>如图，假定以太坊系统存在以下情况，A、B、C、D在四个分支上，最后，随着时间推移B所在链成为最长合法链，因此A、C、D区块都作废，但为了补偿这些区块所属矿工所作的工作，给这些区块一些“补偿”，并称其为&quot;Uncle Block&quot;（叔父区块）。</p>
+<ul>
+<li>
+<p>规定E区块在发布时可以将A、C、D叔父区块包含进来，A、C、D叔父区块可以得到出块奖励的7/8，</p>
+</li>
+<li>
+<p>而为了激励E包含叔父区块，规定E每包含一个叔父区块可以额外得到1/32的出块奖励。</p>
+</li>
+<li>
+<p>为了防止E大量包含叔父区块，规定一个区块只能最多包含两个叔父区块，</p>
+</li>
+<li>
+<p>因此E在A、C、D中最多只能包含两个区块作为自己的出块奖励</p>
+<blockquote>
+<p>鼓励系统出现分叉后进行合并（招安）</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>不检查交易，只检测难度是否符合</p>
+</blockquote>
+<h1>ETH 挖矿</h1>
+<blockquote>
+<p>北大肖臻区块链网课</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>区块链</category>
+        <category>ETH</category>
+      </categories>
+      <tags>
+        <tag>区块链</tag>
+        <tag>ETH</tag>
+        <tag>以太坊</tag>
       </tags>
   </entry>
   <entry>
@@ -2327,200 +2508,9 @@ UCF101 , HMDB51, Kinetics-400 ,  Kinetics-600, Moments in Time</p>
       </categories>
       <tags>
         <tag>transformer</tag>
+        <tag>计算机视觉</tag>
         <tag>多模态</tag>
         <tag>自监督</tag>
-        <tag>计算机视觉</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PloyViT</title>
-    <url>/2022/03/24/PloyViT/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201134581.png" alt="image-20220620113455526"></p>
-<span id="more"></span>
-<p>当 Lshared = L 时，参数总数减少大约 n 倍</p>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135038.png" alt="image-20220620113520024" style="zoom:67%;" />
-<h2 id="联合训练过程">联合训练过程</h2>
-<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135895.png" alt="image-20220620113550863"></p>
-<p>使用随机梯度下降 (SGD) 训练所有任务，同时优化所有 PolyViT 模型参数θ</p>
-<p><u>如何构建训练批次?</u></p>
-<h3 id="协同训练">协同训练</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138668.png" alt="image-20220620113802632" style="zoom:80%;" />
-<h3 id="ployvit-base-协同训练">PloyViT-Base 协同训练</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138940.png" alt="image-20220620113806903" style="zoom:80%;" />
-<h3 id="单任务">单任务</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138808.png" alt="image-20220620113812763" style="zoom:80%;" />
-<blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/448377212">超神！全能视觉</a><a href="https://zhuanlan.zhihu.com/p/448377212">Transformer</a><a href="https://zhuanlan.zhihu.com/p/448377212">：</a><a href="https://zhuanlan.zhihu.com/p/448377212">PolyViT</a><a href="https://zhuanlan.zhihu.com/p/448377212">！协同多模态图像、视频、音频</a><a href="https://zhuanlan.zhihu.com/p/448377212">SOTA</a><a href="https://zhuanlan.zhihu.com/p/448377212">！谷歌、剑桥大学、图灵研究院出品！ </a><a href="https://zhuanlan.zhihu.com/p/448377212">- </a><a href="https://zhuanlan.zhihu.com/p/448377212">知乎 </a><a href="https://zhuanlan.zhihu.com/p/448377212">(zhihu.com)</a></p>
-<p><a href="https://arxiv.org/pdf/2111.12993.pdf">https://arxiv.org/pdf/2111.12993.pdf</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>计算机视觉</category>
-        <category>架构</category>
-      </categories>
-      <tags>
-        <tag>transformer</tag>
-        <tag>多模态</tag>
-        <tag>计算机视觉</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VIT</title>
-    <url>/2022/02/08/VIT/</url>
-    <content><![CDATA[<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944322.gif" style="zoom: 33%;" />
-<span id="more"></span>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170937881.png" alt="image-20220617093716829" style="zoom:80%;" />
-<blockquote>
-<p><a href="https://ai.googleblog.com/2020/12/transformers-for-image-recognition-at.html">Google AI Blog: Transformers for Image Recognition at Scale (googleblog.com)</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>计算机视觉</category>
-        <category>架构</category>
-      </categories>
-      <tags>
-        <tag>transformer</tag>
-        <tag>cv</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/09/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<span id="more"></span>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>以太坊</title>
-    <url>/2022/04/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A/</url>
-    <content><![CDATA[<h1>以太坊概述</h1>
-<p>区块链2.0</p>
-<p>ETHsd</p>
-<span id="more"></span>
-<h1>ETH 账户</h1>
-<h1>ETH 数据结构</h1>
-<h2 id="eth-状态树">ETH　状态树</h2>
-<blockquote>
-<p>Modified MPT</p>
-</blockquote>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181736698.png" alt="image-20220420164220341" style="zoom:67%;" />
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737883.png" alt="image-20220420164523672" style="zoom:67%;" />
-<blockquote>
-<p>为什么要保存历史状态？为何不直接修改？</p>
-<p>为了便于回滚 roll back。eth临时性的分叉是常态</p>
-<p>如下1中产生分叉，而后上面节点胜出，变为2中状态。那么，下面节点中状态的修改便需要进行回滚。因此，需要维护这些历史记录。</p>
-<img src="https://img-blog.csdnimg.cn/20200225193738472.png" alt="在这里插入图片描述" style="zoom: 67%;" />
-<p>简单的转账交易能够直接简单回滚，但是以太坊种有智能合约。</p>
-<p>ETH 的智能合约是图灵完备的。</p>
-</blockquote>
-<h3 id="eth-块头">ETH 块头</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737110.png" alt="在这里插入图片描述" style="zoom:100%;" />
-<h3 id="区块结构">区块结构</h3>
-<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181734553.png" alt="image-20220420203214173"></p>
-<h3 id="区块在网上真正发布时的信息">区块在网上真正发布时的信息</h3>
-<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737793.png" alt="在这里插入图片描述"></p>
-<h3 id="key-value对">Key-value对</h3>
-<p>状态树中保存Key-value对，key就是地址，而value状态通过RLP(Recursive Length Prefix，一种进行序列化的方法)编码序列号之后再进行存储。</p>
-<p><a href="https://blog.csdn.net/qq_40792869/article/details/89026738">什么是序列化</a></p>
-<p><a href="https://www.cnblogs.com/zhizaixingzou/p/10122380.html">以太坊：底层序列化编码方式RLP </a></p>
-<h2 id="eth-交易树">ETH 交易树</h2>
-<h2 id="eth-收据树">ETH 收据树</h2>
-<h1>GHOST 协议</h1>
-<p>BTC系统中出块时间为10min，而以太坊中出块时间被降低到15s左右，虽然有效提高了系统反应时间和吞吐率，却也导致系统临时性分叉变成常态，且分叉数目更多。这对于共识协议来说，就存在很大挑战。在BTC系统中，不在最长合法链上的节点最后都是作废的，但如果在以太坊系统中，如果这样处理，由于系统中经常性会出现分叉，则矿工挖到矿很大可能会被废弃，这会大大降低矿工挖矿积极性。而对于个人矿工来说，和大型矿池相比更是存在天然劣势。<br>
-对此，以太坊设计了新的公式协议——GHOST协议</p>
-<blockquote>
-<p>(该协议并非原创，而是对原本就有的Ghost协议进行了改进)。</p>
-</blockquote>
-<blockquote>
-<p>动机：比特币共识机制的问题</p>
-<p>大型矿池获得与其算力比例不匹配的收益</p>
-<p>mining centralization</p>
-<p>centralization bias</p>
-</blockquote>
-<h2 id="最初的ghost协议">最初的GHOST协议</h2>
-<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181737997.png" alt="在这里插入图片描述"></p>
-<p>如图，假定以太坊系统存在以下情况，A、B、C、D在四个分支上，最后，随着时间推移B所在链成为最长合法链，因此A、C、D区块都作废，但为了补偿这些区块所属矿工所作的工作，给这些区块一些“补偿”，并称其为&quot;Uncle Block&quot;（叔父区块）。</p>
-<ul>
-<li>
-<p>规定E区块在发布时可以将A、C、D叔父区块包含进来，A、C、D叔父区块可以得到出块奖励的7/8，</p>
-</li>
-<li>
-<p>而为了激励E包含叔父区块，规定E每包含一个叔父区块可以额外得到1/32的出块奖励。</p>
-</li>
-<li>
-<p>为了防止E大量包含叔父区块，规定一个区块只能最多包含两个叔父区块，</p>
-</li>
-<li>
-<p>因此E在A、C、D中最多只能包含两个区块作为自己的出块奖励</p>
-<blockquote>
-<p>鼓励系统出现分叉后进行合并（招安）</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>不检查交易，只检测难度是否符合</p>
-</blockquote>
-<h1>ETH 挖矿</h1>
-<blockquote>
-<p>北大肖臻区块链网课</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>区块链</category>
-        <category>ETH</category>
-      </categories>
-      <tags>
-        <tag>区块链</tag>
-        <tag>ETH</tag>
-        <tag>以太坊</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图结构上机实验</title>
-    <url>/2022/05/19/%E5%9B%BE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/</url>
-    <content><![CDATA[<h2 id="问题">问题</h2>
-<p>在n个人中，某些人的银行账号之间可以互相转账。这些人之间转账的手续费各不相同。给定这些人之间转账时需要从转账金额里扣除百分之几的手续费，请问A最少需要多少钱使得转账后B收到100元。</p>
-<p><strong>输入</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一行输入两个正整数n,m，分别表示总人数和可以互相转账的人的对数。</span><br><span class="line">以下m行每行输入三个正整数x,y,z，表示标号为x的人和标号为y的人之间互相转账需要扣除z%的手续费(z&lt;100)。</span><br><span class="line">最后一行输入两个正整数A,B。数据保证A与B之间可以直接或间接地转账。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 2&lt;=N&lt;=20，1&lt;=M&lt;=20，1&lt;=Q&lt;=100</p>
-</blockquote>
-<p><strong>输出</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输出A使得B到账100元最少需要的总费用。精确到小数点后8位。</span><br></pre></td></tr></table></figure>
-<p><strong>样例分析</strong></p>
-<p>【样例输入】</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>【样例输出】</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">103.07153164</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="adt-实现">ADT 实现</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> graphm</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> graphm</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VertexType int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_VERTEX_NUM 10000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graphm</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="type">int</span> numVertex, numEdge;</span><br><span class="line">		<span class="type">double</span> **matrix;</span><br><span class="line">		<span class="type">int</span> *mark;</span><br><span class="line">		VertexType vexs[MAX_VERTEX_NUM];</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="built_in">Graphm</span>();</span><br><span class="line">		<span class="built_in">Graphm</span>(<span class="type">int</span> n);</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">n</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">e</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">first</span><span class="params">(<span class="type">int</span> )</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">putVex</span><span class="params">(<span class="type">int</span> v,VertexType value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">locateVex</span><span class="params">(VertexType u)</span></span>;</span><br><span class="line">		<span class="function">VertexType <span class="title">getVex</span><span class="params">(<span class="type">int</span> v)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">setEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2,<span class="type">double</span> value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">deleteEdge</span><span class="params">(<span class="type">int</span>,<span class="type">int</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">setMark</span><span class="params">(<span class="type">int</span> v,<span class="type">int</span> value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">getMark</span><span class="params">(<span class="type">int</span> v)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">double</span> <span class="title">getEdge</span><span class="params">(<span class="type">int</span> ,<span class="type">int</span>)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> VertexType int</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;graphm.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Graphm::<span class="built_in">Graphm</span>()&#123;&#125;</span><br><span class="line"></span><br><span class="line">Graphm::<span class="built_in">Graphm</span>(<span class="type">int</span> n)&#123;</span><br><span class="line">	numVertex = n;</span><br><span class="line">	numEdge = <span class="number">0</span>;</span><br><span class="line">	matrix = <span class="keyword">new</span> <span class="type">double</span>*[numVertex];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		matrix[i] = <span class="keyword">new</span> <span class="type">double</span>[numVertex];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numVertex;i++)</span><br><span class="line">	    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;numVertex;j++)</span><br><span class="line">	        matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">	mark = <span class="keyword">new</span> <span class="type">int</span>[numVertex];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numVertex;i++)mark[i]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::n</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> numVertex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::e</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> numEdge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::first</span><span class="params">(<span class="type">int</span> v1)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(matrix[v1][i] != <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::next</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = v2 + <span class="number">1</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(matrix[v1][i] != <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::putVex</span><span class="params">(<span class="type">int</span> v,VertexType value)</span></span>&#123;</span><br><span class="line">	vexs[v] = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::locateVex</span><span class="params">(VertexType u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(u==vexs[i])<span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">VertexType <span class="title">Graphm::getVex</span><span class="params">(<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> vexs[v];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::setEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2,<span class="type">double</span> value)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(matrix[v1][v2]==<span class="number">0</span>)numEdge++;</span><br><span class="line">	matrix[v1][v2]=value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::deleteEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(matrix[v1][v2]==<span class="number">0</span>)numEdge--;</span><br><span class="line">	matrix[v1][v2]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::setMark</span><span class="params">(<span class="type">int</span> v,<span class="type">int</span> value)</span></span>&#123;</span><br><span class="line">	mark[v]=value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::getMark</span><span class="params">(<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(v&gt;=numVertex)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">return</span> mark[v];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Graphm::getEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> matrix[v1][v2];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(Graphm &amp;g)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g.<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g.<span class="built_in">n</span>(); j++)&#123;</span><br><span class="line">			cout &lt;&lt;  <span class="built_in">setiosflags</span>(ios::fixed) &lt;&lt;  <span class="built_in">setprecision</span>(<span class="number">8</span>)</span><br><span class="line">			 &lt;&lt; g.<span class="built_in">getEdge</span>(i,j)&lt;&lt;<span class="string">&quot;  &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="算法实现">算法实现</h2>
-<p>用Dijkstra，(O(n^2)) 实现。由于从一个账户转钱到另外一个账户的手续费不同，所以我们视它们为边的权值。先求出去掉手续费后所遗留下的钱，并在寻找路径时尽量去找能留下更多钱的路径（注意在起始点时要给它赋值为1），并将权值相乘，最后拿100除以权值相乘得到的最大值，输出答案。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Dijkstra</span><span class="params">(Graphm* g,<span class="type">double</span>* D,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g-&gt;<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		D[i] = g-&gt;<span class="built_in">getEdge</span>(s,i);</span><br><span class="line">	&#125;</span><br><span class="line">	D[s] = <span class="number">1</span>;</span><br><span class="line">	g-&gt;<span class="built_in">setMark</span>(s,<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g-&gt;<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		minn = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g-&gt;<span class="built_in">n</span>(); j++ )&#123;</span><br><span class="line">			<span class="keyword">if</span>(g-&gt;<span class="built_in">getMark</span>(j)==<span class="number">0</span>&amp;&amp;D[j]&gt;minn)&#123;</span><br><span class="line">				k = j;</span><br><span class="line">				minn = D[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		g-&gt;<span class="built_in">setMark</span>(k,<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(k == y) <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g-&gt;<span class="built_in">n</span>(); j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(g-&gt;<span class="built_in">getMark</span>(j)==<span class="number">0</span>&amp;&amp;D[k]*g-&gt;<span class="built_in">getEdge</span>(k,j)&gt;D[j])</span><br><span class="line">			D[j] = D[k] * g-&gt;<span class="built_in">getEdge</span>(k,j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>Dijkstra</tag>
-        <tag>图</tag>
       </tags>
   </entry>
   <entry>
@@ -2587,6 +2577,39 @@ UCF101 , HMDB51, Kinetics-400 ,  Kinetics-600, Moments in Time</p>
       <tags>
         <tag>深度学习</tag>
         <tag>激活函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图结构上机实验</title>
+    <url>/2022/05/19/%E5%9B%BE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>在n个人中，某些人的银行账号之间可以互相转账。这些人之间转账的手续费各不相同。给定这些人之间转账时需要从转账金额里扣除百分之几的手续费，请问A最少需要多少钱使得转账后B收到100元。</p>
+<p><strong>输入</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一行输入两个正整数n,m，分别表示总人数和可以互相转账的人的对数。</span><br><span class="line">以下m行每行输入三个正整数x,y,z，表示标号为x的人和标号为y的人之间互相转账需要扣除z%的手续费(z&lt;100)。</span><br><span class="line">最后一行输入两个正整数A,B。数据保证A与B之间可以直接或间接地转账。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 2&lt;=N&lt;=20，1&lt;=M&lt;=20，1&lt;=Q&lt;=100</p>
+</blockquote>
+<p><strong>输出</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输出A使得B到账100元最少需要的总费用。精确到小数点后8位。</span><br></pre></td></tr></table></figure>
+<p><strong>样例分析</strong></p>
+<p>【样例输入】</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>【样例输出】</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">103.07153164</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="adt-实现">ADT 实现</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> graphm</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> graphm</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VertexType int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_VERTEX_NUM 10000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graphm</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="type">int</span> numVertex, numEdge;</span><br><span class="line">		<span class="type">double</span> **matrix;</span><br><span class="line">		<span class="type">int</span> *mark;</span><br><span class="line">		VertexType vexs[MAX_VERTEX_NUM];</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="built_in">Graphm</span>();</span><br><span class="line">		<span class="built_in">Graphm</span>(<span class="type">int</span> n);</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">n</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">e</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">first</span><span class="params">(<span class="type">int</span> )</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">putVex</span><span class="params">(<span class="type">int</span> v,VertexType value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">locateVex</span><span class="params">(VertexType u)</span></span>;</span><br><span class="line">		<span class="function">VertexType <span class="title">getVex</span><span class="params">(<span class="type">int</span> v)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">setEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2,<span class="type">double</span> value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">deleteEdge</span><span class="params">(<span class="type">int</span>,<span class="type">int</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">setMark</span><span class="params">(<span class="type">int</span> v,<span class="type">int</span> value)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">getMark</span><span class="params">(<span class="type">int</span> v)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">double</span> <span class="title">getEdge</span><span class="params">(<span class="type">int</span> ,<span class="type">int</span>)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> VertexType int</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;graphm.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Graphm::<span class="built_in">Graphm</span>()&#123;&#125;</span><br><span class="line"></span><br><span class="line">Graphm::<span class="built_in">Graphm</span>(<span class="type">int</span> n)&#123;</span><br><span class="line">	numVertex = n;</span><br><span class="line">	numEdge = <span class="number">0</span>;</span><br><span class="line">	matrix = <span class="keyword">new</span> <span class="type">double</span>*[numVertex];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		matrix[i] = <span class="keyword">new</span> <span class="type">double</span>[numVertex];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numVertex;i++)</span><br><span class="line">	    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;numVertex;j++)</span><br><span class="line">	        matrix[i][j]=<span class="number">0</span>;</span><br><span class="line">	mark = <span class="keyword">new</span> <span class="type">int</span>[numVertex];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numVertex;i++)mark[i]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::n</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> numVertex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::e</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> numEdge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::first</span><span class="params">(<span class="type">int</span> v1)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(matrix[v1][i] != <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::next</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = v2 + <span class="number">1</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(matrix[v1][i] != <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::putVex</span><span class="params">(<span class="type">int</span> v,VertexType value)</span></span>&#123;</span><br><span class="line">	vexs[v] = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::locateVex</span><span class="params">(VertexType u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; numVertex; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(u==vexs[i])<span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">VertexType <span class="title">Graphm::getVex</span><span class="params">(<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> vexs[v];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::setEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2,<span class="type">double</span> value)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(matrix[v1][v2]==<span class="number">0</span>)numEdge++;</span><br><span class="line">	matrix[v1][v2]=value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::deleteEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(matrix[v1][v2]==<span class="number">0</span>)numEdge--;</span><br><span class="line">	matrix[v1][v2]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Graphm::setMark</span><span class="params">(<span class="type">int</span> v,<span class="type">int</span> value)</span></span>&#123;</span><br><span class="line">	mark[v]=value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Graphm::getMark</span><span class="params">(<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(v&gt;=numVertex)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">return</span> mark[v];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Graphm::getEdge</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> matrix[v1][v2];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(Graphm &amp;g)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g.<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g.<span class="built_in">n</span>(); j++)&#123;</span><br><span class="line">			cout &lt;&lt;  <span class="built_in">setiosflags</span>(ios::fixed) &lt;&lt;  <span class="built_in">setprecision</span>(<span class="number">8</span>)</span><br><span class="line">			 &lt;&lt; g.<span class="built_in">getEdge</span>(i,j)&lt;&lt;<span class="string">&quot;  &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法实现">算法实现</h2>
+<p>用Dijkstra，(O(n^2)) 实现。由于从一个账户转钱到另外一个账户的手续费不同，所以我们视它们为边的权值。先求出去掉手续费后所遗留下的钱，并在寻找路径时尽量去找能留下更多钱的路径（注意在起始点时要给它赋值为1），并将权值相乘，最后拿100除以权值相乘得到的最大值，输出答案。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Dijkstra</span><span class="params">(Graphm* g,<span class="type">double</span>* D,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g-&gt;<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		D[i] = g-&gt;<span class="built_in">getEdge</span>(s,i);</span><br><span class="line">	&#125;</span><br><span class="line">	D[s] = <span class="number">1</span>;</span><br><span class="line">	g-&gt;<span class="built_in">setMark</span>(s,<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; g-&gt;<span class="built_in">n</span>(); i++)&#123;</span><br><span class="line">		minn = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g-&gt;<span class="built_in">n</span>(); j++ )&#123;</span><br><span class="line">			<span class="keyword">if</span>(g-&gt;<span class="built_in">getMark</span>(j)==<span class="number">0</span>&amp;&amp;D[j]&gt;minn)&#123;</span><br><span class="line">				k = j;</span><br><span class="line">				minn = D[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		g-&gt;<span class="built_in">setMark</span>(k,<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(k == y) <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; g-&gt;<span class="built_in">n</span>(); j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(g-&gt;<span class="built_in">getMark</span>(j)==<span class="number">0</span>&amp;&amp;D[k]*g-&gt;<span class="built_in">getEdge</span>(k,j)&gt;D[j])</span><br><span class="line">			D[j] = D[k] * g-&gt;<span class="built_in">getEdge</span>(k,j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Dijkstra</tag>
+        <tag>图</tag>
       </tags>
   </entry>
 </search>
