@@ -1362,25 +1362,12 @@ L————|——————R<br>
       </tags>
   </entry>
   <entry>
-    <title>PloyViT</title>
-    <url>/2022/03/24/PloyViT/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201134581.png" alt="image-20220620113455526"></p>
-<span id="more"></span>
-<p>当 Lshared = L 时，参数总数减少大约 n 倍</p>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135038.png" alt="image-20220620113520024" style="zoom:67%;" />
-<h2 id="联合训练过程">联合训练过程</h2>
-<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135895.png" alt="image-20220620113550863"></p>
-<p>使用随机梯度下降 (SGD) 训练所有任务，同时优化所有 PolyViT 模型参数θ</p>
-<p><u>如何构建训练批次?</u></p>
-<h3 id="协同训练">协同训练</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138668.png" alt="image-20220620113802632" style="zoom:80%;" />
-<h3 id="ployvit-base-协同训练">PloyViT-Base 协同训练</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138940.png" alt="image-20220620113806903" style="zoom:80%;" />
-<h3 id="单任务">单任务</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138808.png" alt="image-20220620113812763" style="zoom:80%;" />
+    <title>CoAtNet: Marrying Convolution and Attention for All Data Size</title>
+    <url>/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/</url>
+    <content><![CDATA[<span id="more"></span>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171052547.png" alt="image-20220617105209506" style="zoom:80%;" />
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/448377212">超神！全能视觉</a><a href="https://zhuanlan.zhihu.com/p/448377212">Transformer</a><a href="https://zhuanlan.zhihu.com/p/448377212">：</a><a href="https://zhuanlan.zhihu.com/p/448377212">PolyViT</a><a href="https://zhuanlan.zhihu.com/p/448377212">！协同多模态图像、视频、音频</a><a href="https://zhuanlan.zhihu.com/p/448377212">SOTA</a><a href="https://zhuanlan.zhihu.com/p/448377212">！谷歌、剑桥大学、图灵研究院出品！ </a><a href="https://zhuanlan.zhihu.com/p/448377212">- </a><a href="https://zhuanlan.zhihu.com/p/448377212">知乎 </a><a href="https://zhuanlan.zhihu.com/p/448377212">(zhihu.com)</a></p>
-<p><a href="https://arxiv.org/pdf/2111.12993.pdf">https://arxiv.org/pdf/2111.12993.pdf</a></p>
+<p>[<a href="https://arxiv.org/abs/2106.04803">2106.04803] CoAtNet: Marrying Convolution and Attention for All Data Sizes (arxiv.org)</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1389,128 +1376,14 @@ L————|——————R<br>
         <category>架构</category>
       </categories>
       <tags>
-        <tag>计算机视觉</tag>
-        <tag>多模态</tag>
         <tag>transformer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Transformer</title>
-    <url>/2022/01/18/Transformers/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944160.gif" alt=""></p>
-<h2 id="自注意力">自注意力</h2>
-<ul>
-<li>
-<p>自注意力池化将层 xi 当作key，value，query来对序列抽取特征</p>
-<ul>
-<li>完全并行、最长序列为1、但对长序列计算复杂度高</li>
-</ul>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212624.png" alt="image-20220616221239595" style="zoom:50%;" />
-</li>
-<li>
-<p>位置编码</p>
-<ul>
-<li>
-<p>与CNN/RNN不同，自注意力没用记录位置信息<span id="more"></span></p>
-</li>
-<li>
-<p>将位置编码矩阵<strong>P</strong>加入到输入<strong>X</strong>里面：<strong>X</strong>+<strong>P</strong>作为编码输入</p>
-</li>
-<li>
-<p>绝对位置</p>
-</li>
-</ul>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212419.png" alt="image-20220616221252400" style="zoom: 50%;" />
-<ul>
-<li>相对位置</li>
-</ul>
-</li>
-</ul>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162213156.png" alt="image-20220616221310139" style="zoom:50%;" />
-<h2 id="transformer">Transformer</h2>
-<ul>
-<li>完全基于注意⼒机制，没有任何卷积层或循环神经网络层</li>
-<li>编码器－解码器结构</li>
-</ul>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215250.png" alt="image-20220616221501203" style="zoom:50%;" />
-<h3 id="多头注意力">多头注意力</h3>
-<p>​									<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215339.png" alt="image-20220616221533312" style="zoom:50%;" />							<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215116.png" alt="image-20220616221543091" style="zoom:50%;" /></p>
-<ul>
-<li>对同一key，value，query，希望提取不同的信息</li>
-<li>使用h个独立注意力池化</li>
-<li>合并各个head输出</li>
-<li>类比多通道</li>
-<li>识别不同的模式</li>
-<li>缩放点积注意力</li>
-</ul>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218545.png" alt="image-20220616221836522" style="zoom:50%;" /> 
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218910.png" alt="image-20220616221854891" style="zoom:55%;" />
-<h3 id="带掩码的注意力">带掩码的注意力</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221045.png" alt="image-20220616222102020" style="zoom:50%;" />
-<ul>
-<li>解码器的输入是之前输出</li>
-<li>在自注意力机制中能够看到全局</li>
-<li>在解码器训练时，预测第t个的输出的时候，不应该看到t后面的输入</li>
-<li>保证训练和预测的行为一致</li>
-</ul>
-<h3 id="层归一化">层归一化</h3>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221800.png" alt="image-20220616222149767" style="zoom:50%;" />
-<ul>
-<li>
-<p>批量归一化对每个特征/通道里的元素进行归一化</p>
-<ul>
-<li>不适合序列长度会变的自然语言处理</li>
-<li>样本长度变化比较大，均值和方差抖动较大</li>
-<li>预测时使用的全局均值和方差，遇到极端样本可能失效
-<ul>
-<li>把不同句子相同位置的token作为同一个特征进行归一化是不合适的</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>层归一化对每个样本里的元素归一化</p>
-<ul>
-<li>每个样本自己的均值和方差</li>
-<li>更稳定</li>
-</ul>
-</li>
-</ul>
-<h3 id="信息传递">信息传递</h3>
-<ul>
-<li>
-<p>假-设编码器输出 y<sub>1</sub>……y<sub>n</sub></p>
-</li>
-<li>
-<p>将其作为解码中第 i 个 transformer 块中多头注意力的 key 和 value</p>
-<ul>
-<li>它的 query 来自目标序列</li>
-</ul>
-</li>
-<li>
-<p>使得编码器和解码器输出的维度一样</p>
-</li>
-<li>
-<p>根据解码器不同的输入，在编码器中挑选（注意）到感兴趣的东西</p>
-</li>
-</ul>
-<blockquote>
-<p><a href="https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html">Google AI Blog: Transformer: A Novel Neural Network Architecture for Language Understanding (googleblog.com)</a></p>
-<p><a href="https://d2l.ai/">https://d2l.ai/</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>transformer</tag>
-        <tag>cv</tag>
-        <tag>nlp</tag>
+        <tag>卷积</tag>
+        <tag>混合模型</tag>
       </tags>
   </entry>
   <entry>
     <title>Image Super-Resolution via Iterative Refinement</title>
-    <url>/2022/06/17/Image-Super-Resolution-via-Iterative-Refinement/</url>
+    <url>/2022/03/02/Image-Super-Resolution-via-Iterative-Refinement/</url>
     <content><![CDATA[<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939072.png" alt="image-20220617193939032" style="zoom:80%;" />
 <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171939000.png" alt="image-20220617193954970" style="zoom:67%;" />
 <span id="more"></span>
@@ -1530,26 +1403,6 @@ L————|——————R<br>
         <tag>cv</tag>
         <tag>生成模型</tag>
         <tag>图像超分辨率</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CoAtNet: Marrying Convolution and Attention for All Data Size</title>
-    <url>/2022/02/14/CoAtNet-Marrying-Convolution-and-Attention-for-All-Data-Size/</url>
-    <content><![CDATA[<span id="more"></span>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206171052547.png" alt="image-20220617105209506" style="zoom:80%;" />
-<blockquote>
-<p>[<a href="https://arxiv.org/abs/2106.04803">2106.04803] CoAtNet: Marrying Convolution and Attention for All Data Sizes (arxiv.org)</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>计算机视觉</category>
-        <category>架构</category>
-      </categories>
-      <tags>
-        <tag>transformer</tag>
-        <tag>卷积</tag>
-        <tag>混合模型</tag>
       </tags>
   </entry>
   <entry>
@@ -2179,6 +2032,120 @@ L————|——————R<br>
       </tags>
   </entry>
   <entry>
+    <title>Transformer</title>
+    <url>/2022/01/18/Transformers/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206170944160.gif" alt=""></p>
+<h2 id="自注意力">自注意力</h2>
+<ul>
+<li>
+<p>自注意力池化将层 xi 当作key，value，query来对序列抽取特征</p>
+<ul>
+<li>完全并行、最长序列为1、但对长序列计算复杂度高</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212624.png" alt="image-20220616221239595" style="zoom:50%;" />
+</li>
+<li>
+<p>位置编码</p>
+<ul>
+<li>
+<p>与CNN/RNN不同，自注意力没用记录位置信息<span id="more"></span></p>
+</li>
+<li>
+<p>将位置编码矩阵<strong>P</strong>加入到输入<strong>X</strong>里面：<strong>X</strong>+<strong>P</strong>作为编码输入</p>
+</li>
+<li>
+<p>绝对位置</p>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162212419.png" alt="image-20220616221252400" style="zoom: 50%;" />
+<ul>
+<li>相对位置</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162213156.png" alt="image-20220616221310139" style="zoom:50%;" />
+<h2 id="transformer">Transformer</h2>
+<ul>
+<li>完全基于注意⼒机制，没有任何卷积层或循环神经网络层</li>
+<li>编码器－解码器结构</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215250.png" alt="image-20220616221501203" style="zoom:50%;" />
+<h3 id="多头注意力">多头注意力</h3>
+<p>​									<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215339.png" alt="image-20220616221533312" style="zoom:50%;" />							<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162215116.png" alt="image-20220616221543091" style="zoom:50%;" /></p>
+<ul>
+<li>对同一key，value，query，希望提取不同的信息</li>
+<li>使用h个独立注意力池化</li>
+<li>合并各个head输出</li>
+<li>类比多通道</li>
+<li>识别不同的模式</li>
+<li>缩放点积注意力</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218545.png" alt="image-20220616221836522" style="zoom:50%;" /> 
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162218910.png" alt="image-20220616221854891" style="zoom:55%;" />
+<h3 id="带掩码的注意力">带掩码的注意力</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221045.png" alt="image-20220616222102020" style="zoom:50%;" />
+<ul>
+<li>解码器的输入是之前输出</li>
+<li>在自注意力机制中能够看到全局</li>
+<li>在解码器训练时，预测第t个的输出的时候，不应该看到t后面的输入</li>
+<li>保证训练和预测的行为一致</li>
+</ul>
+<h3 id="层归一化">层归一化</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206162221800.png" alt="image-20220616222149767" style="zoom:50%;" />
+<ul>
+<li>
+<p>批量归一化对每个特征/通道里的元素进行归一化</p>
+<ul>
+<li>不适合序列长度会变的自然语言处理</li>
+<li>样本长度变化比较大，均值和方差抖动较大</li>
+<li>预测时使用的全局均值和方差，遇到极端样本可能失效
+<ul>
+<li>把不同句子相同位置的token作为同一个特征进行归一化是不合适的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>层归一化对每个样本里的元素归一化</p>
+<ul>
+<li>每个样本自己的均值和方差</li>
+<li>更稳定</li>
+</ul>
+</li>
+</ul>
+<h3 id="信息传递">信息传递</h3>
+<ul>
+<li>
+<p>假-设编码器输出 y<sub>1</sub>……y<sub>n</sub></p>
+</li>
+<li>
+<p>将其作为解码中第 i 个 transformer 块中多头注意力的 key 和 value</p>
+<ul>
+<li>它的 query 来自目标序列</li>
+</ul>
+</li>
+<li>
+<p>使得编码器和解码器输出的维度一样</p>
+</li>
+<li>
+<p>根据解码器不同的输入，在编码器中挑选（注意）到感兴趣的东西</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html">Google AI Blog: Transformer: A Novel Neural Network Architecture for Language Understanding (googleblog.com)</a></p>
+<p><a href="https://d2l.ai/">https://d2l.ai/</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+        <tag>cv</tag>
+        <tag>nlp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VATT 多模态自我监督的transformer</title>
     <url>/2022/03/15/VATT-%E5%A4%9A%E6%A8%A1%E6%80%81%E8%87%AA%E6%88%91%E7%9B%91%E7%9D%A3%E7%9A%84transformer/</url>
     <content><![CDATA[<h2 id="how-to-empower-vision-transformers-with-large-scale-unlabeled-data">How to empower Vision Transformers with <strong>large scale</strong>, <strong>unlabeled</strong> data?</h2>
@@ -2359,10 +2326,43 @@ UCF101 , HMDB51, Kinetics-400 ,  Kinetics-600, Moments in Time</p>
         <category>架构</category>
       </categories>
       <tags>
-        <tag>计算机视觉</tag>
-        <tag>多模态</tag>
         <tag>transformer</tag>
+        <tag>多模态</tag>
         <tag>自监督</tag>
+        <tag>计算机视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PloyViT</title>
+    <url>/2022/03/24/PloyViT/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201134581.png" alt="image-20220620113455526"></p>
+<span id="more"></span>
+<p>当 Lshared = L 时，参数总数减少大约 n 倍</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135038.png" alt="image-20220620113520024" style="zoom:67%;" />
+<h2 id="联合训练过程">联合训练过程</h2>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201135895.png" alt="image-20220620113550863"></p>
+<p>使用随机梯度下降 (SGD) 训练所有任务，同时优化所有 PolyViT 模型参数θ</p>
+<p><u>如何构建训练批次?</u></p>
+<h3 id="协同训练">协同训练</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138668.png" alt="image-20220620113802632" style="zoom:80%;" />
+<h3 id="ployvit-base-协同训练">PloyViT-Base 协同训练</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138940.png" alt="image-20220620113806903" style="zoom:80%;" />
+<h3 id="单任务">单任务</h3>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201138808.png" alt="image-20220620113812763" style="zoom:80%;" />
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/448377212">超神！全能视觉</a><a href="https://zhuanlan.zhihu.com/p/448377212">Transformer</a><a href="https://zhuanlan.zhihu.com/p/448377212">：</a><a href="https://zhuanlan.zhihu.com/p/448377212">PolyViT</a><a href="https://zhuanlan.zhihu.com/p/448377212">！协同多模态图像、视频、音频</a><a href="https://zhuanlan.zhihu.com/p/448377212">SOTA</a><a href="https://zhuanlan.zhihu.com/p/448377212">！谷歌、剑桥大学、图灵研究院出品！ </a><a href="https://zhuanlan.zhihu.com/p/448377212">- </a><a href="https://zhuanlan.zhihu.com/p/448377212">知乎 </a><a href="https://zhuanlan.zhihu.com/p/448377212">(zhihu.com)</a></p>
+<p><a href="https://arxiv.org/pdf/2111.12993.pdf">https://arxiv.org/pdf/2111.12993.pdf</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>计算机视觉</category>
+        <category>架构</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+        <tag>多模态</tag>
+        <tag>计算机视觉</tag>
       </tags>
   </entry>
   <entry>
