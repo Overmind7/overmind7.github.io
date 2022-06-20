@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>VATT 多模态自我监督的transformer |  今天学习了吗</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/picture_compress.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-VATT-多模态自我监督的transformer"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  VATT 多模态自我监督的transformer
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/15/VATT-%E5%A4%9A%E6%A8%A1%E6%80%81%E8%87%AA%E6%88%91%E7%9B%91%E7%9D%A3%E7%9A%84transformer/" class="article-date">
+  <time datetime="2022-03-15T02:23:03.000Z" itemprop="datePublished">2022-03-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a> / <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a> / <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">505</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="how-to-empower-vision-transformers-with-large-scale-unlabeled-data">How to empower Vision Transformers with <strong>large scale</strong>, <strong>unlabeled</strong> data?</h2>
+<ul>
+<li>Troubling large-scale supervised training of Transformers
+<ul>
+<li>Rules out the much larger other part of“big visual data,”
+<ol>
+<li>i.e, the vast amount of unlabeled, unstructured visual data.</li>
+<li>REQUIRE EVEN <strong>MORE LABELED DATA</strong> TO CORRECT THEIR BIASES.</li>
+<li>EXTREMELY TIME-CONSUMING</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201031807.png" alt="image-20220620103121749" style="zoom: 80%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201031443.png" alt="image-20220620103146392" style="zoom:60%;" />
+<h3 id="vedio">Vedio</h3>
+<p>Input: Raw rgb vedio.</p>
+<ul>
+<li>
+<p>Clip size： <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>×</mo><mi>H</mi><mo>×</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">T×H×W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span></p>
+</li>
+<li>
+<p>Patch number:  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌈</mo><mi>T</mi><mi mathvariant="normal">/</mi><mi>t</mi><mo stretchy="false">⌉</mo><mtext>∙</mtext><mo stretchy="false">⌈</mo><mi>H</mi><mi mathvariant="normal">/</mi><mi>h</mi><mo stretchy="false">⌉</mo><mtext>∙</mtext><mo stretchy="false">⌈</mo><mi>W</mi><mi mathvariant="normal">/</mi><mi>w</mi><mo stretchy="false">⌉</mo></mrow><annotation encoding="application/x-tex">⌈T/t⌉∙ ⌈H/h⌉∙⌈W/w⌉</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⌈</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord">/</span><span class="mord mathdefault">t</span><span class="mclose">⌉</span><span class="mord">∙</span><span class="mopen">⌈</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord">/</span><span class="mord mathdefault">h</span><span class="mclose">⌉</span><span class="mord">∙</span><span class="mopen">⌈</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">⌉</span></span></span></span></p>
+</li>
+<li>
+<p>Each patch: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>×</mo><mi>h</mi><mo>×</mo><mi>w</mi><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">t×h×w×3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69841em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span></p>
+</li>
+<li>
+<p>Linear projection: <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201033646.png" alt="image-20220620103356626" style="zoom: 50%;" /></p>
+</li>
+<li>
+<p>Position embedding:</p>
+<p>​	<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201034991.png" alt="image-20220620103443972" style="zoom:67%;" /></p>
+<p>​											  <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201034248.png" alt="image-20220620103458230" style="zoom:50%;" /> 						<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201035348.png" alt="image-20220620103507312" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h3 id="audio">Audio</h3>
+<ul>
+<li>Input: 1D waveform input with length  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝑇</mi><mtext>′</mtext></msup></mrow><annotation encoding="application/x-tex">𝑇^′</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Clip size：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌈</mo><msup><mi>𝑇</mi><mtext>′</mtext></msup><mi mathvariant="normal">/</mi><mi>𝑡</mi><mtext>′</mtext><mo stretchy="false">⌉</mo></mrow><annotation encoding="application/x-tex">⌈𝑇^′/𝑡′⌉</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathdefault">t</span><span class="mord">′</span><span class="mclose">⌉</span></span></span></span></li>
+<li>Patch size: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑡</mi></mrow><annotation encoding="application/x-tex">𝑡</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>′</li>
+<li>Linear projection: <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201039613.png" alt="image-20220620103929579" style="zoom:50%;" /></li>
+<li>Postion embedding: Use <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌈</mo><msup><mi>𝑇</mi><mtext>′</mtext></msup><mi mathvariant="normal">/</mi><mi>𝑡</mi><mtext>′</mtext><mo stretchy="false">⌉</mo></mrow><annotation encoding="application/x-tex">⌈𝑇^′/𝑡′ ⌉</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathdefault">t</span><span class="mord">′</span><span class="mclose">⌉</span></span></span></span> learnable embedding.</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201039504.png" alt="image-20220620103938479" style="zoom: 67%;" />
+<h3 id="text">Text</h3>
+<ul>
+<li>
+<p>Dictionary: v</p>
+</li>
+<li>
+<p>One hot vector;</p>
+</li>
+<li>
+<p>Linear projection:  <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201040735.png" alt="image-20220620104056719" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>RELATIVE POSITIONAL ENCODING</p>
+<ul>
+<li>Transferable to SOTA text model T5</li>
+</ul>
+</li>
+</ul>
+<h3 id="droptoken">DropToken</h3>
+<ul>
+<li>
+<p>Simple and yet effective strategy</p>
+</li>
+<li>
+<p>Reduce the computational complexity during training</p>
+</li>
+<li>
+<p>Reduce the redundancy in high-resolution data</p>
+<ul>
+<li>
+<p>reducing the resolution or dimension of the raw inputs</p>
+<p>VS.</p>
+</li>
+<li>
+<p>keep high-fidelity input and randomly sample the tokens</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201041513.png" alt="image-20220620104154469" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201042984.png" alt="image-20220620104227945" style="zoom:60%;" />
+<h3 id="transformer-backbone">Transformer-backbone</h3>
+<ul>
+<li>MHA: multi-head attention</li>
+<li>MLP: GeLU</li>
+<li>LN: Layer Normalization</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201043596.png" alt="image-20220620104319570" style="zoom: 67%;" />
+<h3 id="common-space-projection">Common Space Projection</h3>
+<ul>
+<li>Different levels of semantic granularity</li>
+<li>不同的模态具有不同级别的语义粒度，因此我们应该将其作为公共空间投影中的归纳偏置。</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201044577.png" alt="image-20220620104422556" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201044771.png" alt="image-20220620104437734" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201044699.png" alt="image-20220620104452676" style="zoom:50%;" />
+<h3 id="multimodal-contrastive-learning">Multimodal Contrastive Learning</h3>
+<ul>
+<li>Noise Contrastive Estimation (NCE) to align video-audio pairs</li>
+<li>Multiple Instance Learning NCE (MIL-NCE) to align video-text pairs.</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201045091.png" alt="image-20220620104533062" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201045549.png" alt="image-20220620104549530" style="zoom: 67%;" />
+<ul>
+<li>Different temporal locations in the video-audio-text stream</li>
+<li>Positive pairs (from two modalities): same location</li>
+<li>Negative pairs: non-matching locations</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201047771.png" alt="image-20220620104754728" style="zoom: 80%;" />
+<h3 id="experiment">Experiment</h3>
+<p>Dataset:  <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201127588.png" alt="image-20220620112754567" style="zoom:50%;" /></p>
+<ul>
+<li>
+<p>Pre-train: AudioSet and HowTo100M</p>
+</li>
+<li>
+<p>Downstream</p>
+<ul>
+<li>
+<p>video action recognition:<br>
+UCF101 , HMDB51, Kinetics-400 ,  Kinetics-600, Moments in Time</p>
+</li>
+<li>
+<p>audio event classification:</p>
+<p>​	ESC50, AudioSet.</p>
+</li>
+<li>
+<p>zero-shot text-to-video retrieval:</p>
+<p>​	YouCook2  and MSR-VTT.</p>
+</li>
+<li>
+<p>Classification:</p>
+<p>​	ImageNet</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>HMDB51、UCF101 和 ESC50 与我们的网络规模相比是非常小的数据集，因此我们仅使用它们在冻结的预训练主干之上训练线性分类器。</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201130887.png" alt="image-20220620113005847" style="zoom:80%;" />
+<p>表明了通过单个 Transformer 主干统一三种数据模式的潜力。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201130092.png" alt="image-20220620113052055" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201131774.png" alt="image-20220620113120755" style="zoom: 67%;" />
+<p>VATT is the <strong>first</strong> <strong>Transformer</strong> that outperforms <strong>CNN</strong>-<strong>based</strong> models in audio event recognition.</p>
+<p>Even though the self-supervised pre-training happens in the video domain, we still achieve competitive results to the supervised pre-training using large-scale image data.</p>
+<p><strong>Mixture-of-Experts</strong></p>
+<p>Encourages further studies on the possibility of utilizing Mixture-of-Experts to increase the model’s capacity for simultaneous multimodal perception.</p>
+<center>
+    <img style="transform:scale(0.8)"
+    src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206201132891.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+                padding: 2px;">the average activation of each node at the output of the MLP module
+</div>
+</center>
+<blockquote>
+<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11178">2104.11178] VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text (arxiv.org)</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">视觉</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">Transformer (</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">三</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">) VATT: Transformers for Multimodal Self-Supervised Learning from Video, </a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">Audio,Text_fling_forever</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">的博客</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">-CSDN</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">博客</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">_</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">音频</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/BearLeer/article/details/118195162?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=2">transformer</a></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://overmind7.github.io/2022/03/15/VATT-%E5%A4%9A%E6%A8%A1%E6%80%81%E8%87%AA%E6%88%91%E7%9B%91%E7%9D%A3%E7%9A%84transformer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transformer/" rel="tag">transformer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag">多模态</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/03/24/PloyViT/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            PloyViT
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/02/16/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">激活函数</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2022
+        <i class="ri-heart-fill heart_icon"></i> Overmind
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/dlog.svg" alt="今天学习了吗"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

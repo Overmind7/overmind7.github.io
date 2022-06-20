@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Bitcoin |  今天学习了吗</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/picture_compress.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Bitcoin"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Bitcoin
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/12/Bitcoin/" class="article-date">
+  <time datetime="2022-04-12T09:28:42.000Z" itemprop="datePublished">2022-04-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a> / <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81/">比特币</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">13.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">46 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>北大肖臻区块链网课</p>
+</blockquote>
+<h1>BTC 密码学原理</h1>
+<blockquote>
+<p>比特币主要用到了密码学中的两个功能:</p>
+<ol>
+<li>哈希</li>
+<li>签名</li>
+</ol>
+</blockquote>
+<h2 id="1-哈希">1. 哈希</h2>
+<p>密码学中用到的哈希函数被称为 <code>cryptographic hash function</code>,</p>
+<p>它有两个重要的性质:</p>
+<h3 id="1-1collision-resistance">1.1collision resistance :</h3>
+<p>哈希碰撞</p>
+<p>例如x≠y H(x)=H(y) 两个不同的输入，输出却是相等的，这就称哈希碰撞。它是不可避免的，因为输入空间总大于输出空间。给出x，很难找到y，除非蛮力求解(brute-force)。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730265.png" alt="image-20220413161904436" style="zoom:50%;" />
+<blockquote>
+<p><strong>collision resistance:</strong></p>
+<p>A hash function H is said to be collision resistant if it is infeasible to  find two values, x and y, such that x ≠ y, yet H(x)=H(y)</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>我们说没有人可以找到碰撞，但我们没有说不存在碰撞。</p>
+<p><s>碰撞检测算法：对于输出256位的哈希函数，最坏情况需要计算 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>256</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{256}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">5</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 次哈希值进行比较</s></p>
+<p>没有任何哈希函数被证明是抗碰撞的。我们在实践中依赖的加密哈希函数只是人们已经非常非常努力地尝试发现冲突但尚未成功的函数。在某些情况下，例如旧的 MD5 哈希函数，经过多年的工作最终发现了冲突，导致该函数被弃用并逐步退出实际使用。所以我们选择相信它们是抗碰撞的。</p>
+</blockquote>
+<p>该性质的作用: 对一个message求digest</p>
+<p>比如message取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 的哈希值是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo><mo>=</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">H(m)=digest</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span> 如果有人想篡改 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 值而 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span> 不变，则无法做到。</p>
+<p>哈希碰撞无法人为制造，无法验证，是根据实践经验得来的。</p>
+<h3 id="1-2-hiding">1.2 Hiding</h3>
+<p>哈希函数的计算过程是单向的，不可逆的。(从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> 无法推导出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> )</p>
+<p>hiding性质前提是输入空间足够大，分布比较均匀。如果不是足够大，一般在x后面拼接一个随机数，如<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>n</mi><mi>o</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(x||nonce)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">n</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mclose">)</span></span></span></span> 。</p>
+<p>该性质的作用:和collision resistance 结合在一起，用来实现digital commitment(又称为digital equivalent of a sealed envelope)</p>
+<ol>
+<li>把预测结果作为输入 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> ，算出一个哈希值</li>
+<li>将哈希值公布，hiding让人们知道哈希值而不知道预测值</li>
+<li>最后再将x公布，因为有collision resistance的性质，预测结果是不可篡改的。</li>
+</ol>
+<h3 id="1-3-puzzle-friendly">1.3 puzzle friendly</h3>
+<p>除了密码学中要求的这两个性质外，比特币中用到的哈希函数还有第三个性质:</p>
+<p>puzzle friendly 指哈希值的预算事先是不可预测的。假如哈希值是 <code>00...0XX...X</code>，先无法知道哪个值更容易算出这个结果，需要枚举。</p>
+<p>比特币挖矿的过程中实际就是找一个nonce，nonce 跟区块的块头里的其他信息合一起作为输入，得出的哈希值要小于等于某个指定的目标预值。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo><mo>≤</mo><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">H(block header)≤target</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span> 。<code>block header</code> 指块头，块头里有很多域，其中一个域是我们可以设置的随机数nonce，挖矿的过程是不停的试随机数，使得block header取哈希后落在指定的范围之内。</p>
+<p>puzzle friendly是指挖矿过程中没有捷径，为了使输出值落在指定范围，只能一个一个去试。所以这个过程还可以作为工作量证明(proof of work)。</p>
+<p>挖矿很难，验证很容易。(difficult to solve ,but easy to verify)</p>
+<blockquote>
+<p>比特币被称为加密货币crypto-currency</p>
+<p>区块链上内容都是公开的，包括区块的地址，转账的金额。</p>
+<p>比特币中用的哈希函数叫作SHA-256(secure hash algorithm )以上三个性质它都是满足的。</p>
+</blockquote>
+<h2 id="2-签名">2. 签名</h2>
+<p>在比特币系统中开账户:</p>
+<p>在本地创立一个公私钥匙对  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>k</mi><mi>e</mi><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(public key ,private key)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>，这就是一个账户。公私钥匙对是来自于<strong>非对称的加密技术</strong>(asymmetric encryption algorithm)。</p>
+<blockquote>
+<p>对称加密：两人之间信息的交流可以利用<strong>密钥(encryption key)</strong>，A将信息加密后发给B，B收到后用密钥解密，因为加密和解密用的是同一个密钥，所以叫对称加密。前提是有渠道可以安全地把密钥分发给通讯的双方。</p>
+<p>因此对称加密的缺点就是密钥的分发不方便，因为在网络上很容易被窃听。</p>
+</blockquote>
+<p><strong>非对称密钥</strong>是用一对密钥而不是一个，加密用公钥，解密用私钥，加密和解密用的都是接收方的公钥和私钥。公钥是不用保密的，私钥要保密但是私钥只要保存在本地就行，不用传给对方。<strong>公钥相当于银行账号</strong>，别人转账只要知道公钥就行，<strong>私钥相当于账户密码</strong>，知道私钥可以把账户上钱转走。(公钥和私钥用来签名)</p>
+<blockquote>
+<p>假如A想向B转10个比特币，A把交易放在区块链上，别人怎么知道这笔交易是A发起的呢?</p>
+<p>这就需要A要用自己的私钥给交易签名，其他人收到这笔交易后，要用A的公钥去验证签名。签名用私钥，验证用公钥，用的仍然是同一个人的。</p>
+<p>创建账户产生相同公私钥的可能性微乎其微，所以大量创建账户来窃取其他人账户是不可行的。</p>
+</blockquote>
+<p>我们假设产生公私钥时有一个好的<strong>随机源</strong>(a good source of randomness)，产生公私钥是随机的，如果随机源不好，就有可能产生相同的公私钥。比特币中用的签名算法，不仅是生成公私钥的时候要有好的随机源，之后每一次签名时也要有好的随机源。只要有一次签名用的随机源不好的话，就有可能泄露私钥。</p>
+<h1>比特币数据结构</h1>
+<h2 id="1-哈希指针">1. 哈希指针</h2>
+<blockquote>
+<p>普通指针存储的是某个结构体在内存中的地址。假如P是指向一结构体的指针，那么P里面存放的就是该结构体在内存中的起始位置。</p>
+</blockquote>
+<p>而哈希指针除了要存地址之外，还要**保存该结构体的哈希值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H()</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mclose">)</span></span></span></span> **。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730191.png" alt="image-20220413170006821" style="zoom:50%;" />
+<blockquote>
+<p>好处:</p>
+<p>从哈希值这个哈希指针，不仅可以找到该结构体的位置，同时还能够检测出该结构体的内容有没有被篡改，因为我们保存了它的哈希值。</p>
+</blockquote>
+ <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730610.png" alt="image-20220413165912117" style="zoom:50%;" />
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729562.png" alt="在这里插入图片描述"></p>
+<p>比特币中最基本的结构就是区块链，区块链就是一个一个区块组成的链表。区块链和普通的链表相比有什么区别:</p>
+<ol>
+<li>
+<p>用哈希指针代替了普通指针(B block chain is a linked list using hash pointers)</p>
+<ul>
+<li>
+<p>区块链第一个区块叫作创世纪块(genesis block)</p>
+</li>
+<li>
+<p>最后一个区块是最近产生的区块(most recent block)</p>
+</li>
+<li>
+<p>每一个区块都包含指向前一个区块的哈希指针</p>
+<blockquote>
+<p>一个区块的哈希指针怎么算:</p>
+<p>是把前面整个区块的内容，包括里面的hash pointer ，合在一起取哈希值。</p>
+<p>通过这种结构，可以实现 tamper-evident log。</p>
+<ul>
+<li>如果有人改变了一个区块的内容，后面一个区块的哈希指针就对不上，因为后一个区块哈希指针是根据前一个区块的内容算出来的，所以后一个哈希指针也得改</li>
+<li>以此类推，我们保留的是最后一个哈希值也会变化。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>普通链表可以改变任意一个元素，对链表中其他元素是没有影响的。而区块链是牵一发而动全身，因为只需要保存最后一个哈希值，就可以判断区块链有没有改变，在哪里改变了。</p>
+<blockquote>
+<p>算出它的哈希值，与保留的区块的哈希值对比，即可。</p>
+</blockquote>
+<p>在实际应用中，一整条链可能会被切断分开保存在多个地方。</p>
+<ul>
+<li>若用户仅仅具有其中一段，当用到前面部分区块数据时，直接问系统中其他节点要即可;</li>
+<li>当要到之后，仅仅通过计算要到的<strong>最后一个哈希值</strong>和<strong>自己保存哈希值</strong>是否<strong>一致</strong>可以判断所给内容是否确实为区块链上真实的内容。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-merkle-tree">2. Merkle Tree</h2>
+<h3 id="2-1-结构">2.1 结构</h3>
+<p>比特币中的另外一个结构是:Merkle tree。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729320.png" alt="image-20220413220424544"></p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730907.png" alt="image-20220413221307844" style="zoom:50%;" />
+<p>(其中最下面一层是数据块(data blocks)，上面三层内部节点都是哈希指针(hash pointers)，第一层是根节点，根节点的区块也可以取个哈希，叫根哈希(root hash))</p>
+<p>这种结构的好处:只要记住根哈希值，就能检测出对树中任何部位的修改。</p>
+<p>比特币当中各区块之间用哈希指针连接在一起，每个区块所包含的交易组织成一个merkle tree的形式，最下面一行data blocks每个区块实际上是一个交易；</p>
+<p>每个区块分为两部分，分别是块头和块身(block header ,block body)。</p>
+<ul>
+<li>块头里面有根哈希值，每个区块所包含的所有交易组成的merkle tree的根哈希值存在于区块的块头里面。</li>
+<li>但是，块头里没有交易的具体内容，只有一个根哈希值，块身里面是有交易的列表的。</li>
+</ul>
+<h3 id="2-2-作用">2.2 作用</h3>
+<p>merkle tree 的作用:</p>
+<ol>
+<li>
+<p>提供merkle proof</p>
+<p>比特币中的节点分为两类:</p>
+<ul>
+<li>全节点(保存整个区块的内容，即块头块身都有，有交易的具体信息)</li>
+<li>轻节点(例如手机上的比特币钱包)(只有块头)</li>
+</ul>
+<p>这时存在一个问题:</p>
+<p>==<strong>如何向一个轻节点证明某个交易是写入区块链的?</strong>==</p>
+<p>这时需要用到merkle proof :找到交易所在的位置(最底行的其中一个区块)，这时该区块一直往上到根节点的路径就叫merkle proof。</p>
+</li>
+</ol>
+ <img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730195.png" alt="image-20220413222011859" style="zoom:50%;" />
+<p>最上面一行是小型的区块链，该图展现的是一个区块的merkle tree，最下面一行是包含的交易。</p>
+<p>假设某个轻节点想知道图中黄色的交易，是否包含在了merkle tree里面。该轻节点没有包含交易列表，没有这颗merkle tree的具体内容，只有一个根哈希值。</p>
+<ul>
+<li>这时轻节点向一个全节点发出请求，请求证明黄色的交易被包含在这颗merkle tree里面的merkle proof。</li>
+<li>全节点收到这个请求之后，只需要将图中标为红色的这三个哈希值发给轻节点即可。</li>
+<li>有了这些哈希值之后，轻节点可以在本地计算出图中标为绿色三个哈希值。</li>
+<li>首先算出黄色交易的哈希值，即它正上方的那个绿的哈希值，然后跟旁边红色的哈希值拼接起来，可以算出上层节点绿色的哈希值。</li>
+<li>然后再拼接，再算出上层绿色哈希值，再拼接，就可以算出整棵树的根哈希值。</li>
+<li>轻节点把这个根哈希值和block header里的根哈希值比较一下，就能知道黄色的交易是否在这颗merkle tree里。</li>
+</ul>
+<p>全节点在merkle proof里提供的这几个哈希值，就是从黄色的交易所在的节点的位置到树根的路径上用到的这些哈希值。轻节点收到这样一个merkle proof之后，只要从下往上验证，沿途的哈希值都是正确的即可。</p>
+<p>验证时只能验证该路径的哈希值，其他路径是验证不了的，即该图中红色的哈希值是验证不了的。</p>
+<blockquote>
+<p>这样是否不安全呢?假如黄色交易被篡改，它的哈希值发生了变化，<strong>那能不能调整旁边红色的哈希值，使得它们拼接起来的哈希值是不变的呢</strong> ?</p>
+<p>不行，根据collision resistance，这是不可行的。(人为制造哈希碰撞)？？？</p>
+</blockquote>
+<blockquote>
+<p>merkle proof可以证明merkle tree里面包含了某个交易，所以这种证明又叫proof of membership或 proof of inclusion。</p>
+</blockquote>
+<p>对于一个轻节点来说，验证一个merkle proof 复杂度是多少?</p>
+<blockquote>
+<p>假设最底层有n个交易，则merkle proof 复杂程度是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">θ(log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>。</p>
+</blockquote>
+<p>如何证明merkle tree里面没有包含某个交易?即proof of non-membership。</p>
+<p>可以把整棵树传给轻节点，轻节点收到后验证树的构造都是对的，每一层用到的哈希值都是正确的，说明树里只有这些叶节点，要找的交易不在里面，就证明了proof of non-membership。问题在于，它的复杂度是线性的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">θ(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，是比较笨的方法。</p>
+<p>如果对叶节点的排列顺序做一些要求，比如按照交易的哈希值排序。每一个叶节点都是一次交易，对交易的内容取一次哈希，按照哈希值从小到大排列。要查的交易先算出一个哈希值，看看如果它在里面该是哪个位置。比如说在第三个第四个之间，这时提供的proof是第三个第四个叶节点都要往上到根节点。如果其中哈希值都是正确的，最后根节点算出的哈希值也是没有被改过的，说明第三、四个节点在原来的merkle tree里面，确实是相邻的点。要找的交易如果存在的话，应该在这两个节点中间。但是它没有出现，所以就不存在。<strong>其复杂度也是log形式，代价是要排序</strong>。排好序的叫作sorted merkle tree。</p>
+<p><strong>比特币中没有用到这种排好序的merkle tree</strong>，<strong>因为比特币中不需要做不存在证明。</strong></p>
+<blockquote>
+<p>另外，只要一个数据结构是无环的(非循环链表)，都能用哈希指针代替普通指针。有环的话存在一个问题，他们的哈希值没法计算，没法确定一个哈希值固定的区块。</p>
+</blockquote>
+<h1>比特币共识协议</h1>
+<blockquote>
+<ul>
+<li>双花攻击<br>
+数字货币本身为带有签名的数据文件，虽然不能修改，但是可以进行复制。即：对用户来说，可以将同一货币花费两次。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>修改：对货币添加唯一编号（不可篡改），每次支付向货币发行单位查询真伪。<br>
+该方法每次交易都需要依赖于第三方机构来判断货币真伪且防止双花攻击。是一个典型的第三方中心化方案。<br>
+但是，很多场景下，并不存在这样一个<strong>可信赖的第三方机构</strong>。基于这个背景，以去中心化思想为核心的比特币系统便吸引了人们的注意力。</p>
+</blockquote>
+<h2 id="去中心化货币要解决两个问题">去中心化货币要解决<strong>两个问题</strong>:</h2>
+<ol>
+<li>数字货币的发行；</li>
+<li>怎么验证交易的有效性，防止double spending attack。</li>
+</ol>
+<p>答案:</p>
+<ol>
+<li>
+<p><s>比特币的发行是由挖矿决定的 (后面讲)</s></p>
+</li>
+<li>
+<p>该问题的解决，依赖于系统中维护的一个数据结构，记录货币的使用情况（是否被花过？被谁花过？）。该数据结构由系统中全体用户共同维护，保证了交易的有效性。该数据结构，便是区块链</p>
+</li>
+</ol>
+<p>举例，比特币的发行者A拥有铸币权(createcoin)：</p>
+<p>假如发行10个比特币 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">(</mo><mn>10</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A(10)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">(</span><span class="mord">1</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 分别给 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 各五个 → <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false">(</mo><mn>5</mn><mo stretchy="false">)</mo><mi>C</mi><mo stretchy="false">(</mo><mn>5</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">B(5)C(5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mord">5</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord">5</span><span class="mclose">)</span></span></span></span> ，该交易需要有A的签名，证明经A同意。同时还要说明花掉的10个比特币从哪来的。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730569.png" alt="image-20220413224616197" style="zoom:70%;" />
+<p>比特币系统中每个交易都包含输入和输出两部分。</p>
+<ul>
+<li>输入部分要说明币的来源，</li>
+<li>输出部分要给出收款人公钥的哈希。</li>
+</ul>
+<p>有的交易部分比较复杂，如C的货币来源是第二第三个方框.</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730483.png" alt="image-20220413224724557"></p>
+<p>图四就构成了一个小型的区块链。</p>
+<p>这里有两种哈希指针，</p>
+<ul>
+<li>
+<p>一种哈希指针是连接在各个区块之间的，把它们串起来构成一个链表，前面学的就是这种哈希指针。</p>
+</li>
+<li>
+<p>而在该图中还有第二种哈希指针，是指向前面某个交易的指针，用来指明币的来源。</p>
+</li>
+<li>
+<blockquote>
+<p>为什么要有指向前面交易的指针:</p>
+<p>证明币不是凭空捏造的是有记录的，同时也是防范double spending。</p>
+</blockquote>
+</li>
+</ul>
+<p>现在来看第二个方框里A向B的转账:</p>
+<ul>
+<li>该交易需要A的签名和B的地址。比特币系统里收款的地址是通过公钥推算出来的。比如B的地址就是B的公钥取哈希然后经过一些转换得到的。</li>
+<li>A如何知道B的地址?比特币系统中没有查询对方地址的功能，必须通过其他渠道。比如某个电商网站，接受比特币支付，就可以公开它的地址或公钥。</li>
+<li>A需要知道B的地址，B需要知道A的什么信息吗?B其实也要知道A的公钥，这代表A的身份。在交易中，收款方需要知道付款方的公钥，从而验证A签名是否有效。即A需要提供自己的公钥。</li>
+</ul>
+<blockquote>
+<p>签名是用私钥签名公钥验证，加密是用公钥加密私钥解密</p>
+</blockquote>
+<h2 id="比特币脚本-bitcoin-script-：">比特币脚本(BitCoin Script)：</h2>
+<p>在比特币系统中，通过执行脚本实现上述验证过程。</p>
+<ul>
+<li>每个交易的输入提一段脚本，包括给出公钥的过程，公钥也是在输入的脚本里指定的。</li>
+<li>每个交易的输出也是一段脚本；</li>
+<li>验证其的合法性，就需要把当前交易的输入脚本跟前面交易(提供币来源的交易)的输出脚本拼在一起，然后看看能不能顺利执行，如果能执行说明是合法的。</li>
+</ul>
+<h2 id="比特币区块信息">比特币区块信息</h2>
+<p>上图对交易系统进行了简化，实际上每个区块(对应图中的每个方框)可以有很多交易，这些交易就组成merkle tree。每个区块分为块头和块身。</p>
+<p>块头包含的是区块的宏观信息，比如:用的是比特币哪个版本(version)的协议，区块链当中指向前一个区块的指针(hash of previous block header)，整颗merkle tree 的根哈希值(merkle root hash)，还有两个域是跟挖矿相关的，一个是挖矿的难度目标预值(target)，另一个是随机数nonce。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729321.png" alt="image-20220413231531110"></p>
+<p>这里的target，就是前面讲到的，整个块头的哈希要小于这个预值，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo><mo>≤</mo><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">H(block header)≤target</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span>。block header里存的就是这个目标预值的编码(nBits)。</p>
+<blockquote>
+<p>这里需要注意，前一个区块的哈希只算的是前一个区块的块头，</p>
+</blockquote>
+<p>块身里面有交易列表(transaction list)。</p>
+<p>系统中的节点分全节点(full node)和轻节点(light node)，全节点是保存区块链所有的信息的，验证每一个交易，所以全节点又叫fully validating node。轻节点只保存block header的信息，一般来说轻节点没法独立验证交易的合法性。</p>
+<p>比如一个交易是不是double spending，轻节点没有存以前的交易信息所以它没法验证。<strong>系统中大多数节点是轻节点</strong>，因为轻节点没有参与区块链的构造和维护，只是利用了区块链的一些信息做一些查询。</p>
+<h2 id="分布式共识">分布式共识</h2>
+<p>区块链里的内容是如何写到区块链里面的呢:每个节点，每个账户都可以发布交易，交易是广播给所有节点的。有些交易是合法的，有些是非法的。谁来决定哪些交易应该被写入下一个区块中呢?按照什么顺序写呢?如果每个节点自己决定可以吗?如果每个人在本地维护一个区块链，那区块链的统一性得不到保证。</p>
+<p>账本的内容是要取得分布式的共识(distributed consensus)。</p>
+<blockquote>
+<p>分布式的共识一个简单的例子就是分布式的哈希表(distributed hash table)，比如系统里有很多台机器，共同维护一个全局的哈希表。</p>
+<p>这里需要取得共识的内容是什么？哈希表中包含了哪些键值对key valve pair。假如有人在自己电脑上插入一个键值对，'xiao’这个pair对应的是12345，即’xiao’→12345。那么别人在另一台读的时候也要能把这个读出来，这就叫一个全局的哈希表。</p>
+</blockquote>
+<blockquote>
+<p>关于分布式系统有很多不可能结论(impossibility result)，其中最著名的是FLP。这三个字母是三个专家的名字缩写，他们的结论是:</p>
+<p>在一个异步的(asynchronous)系统里，(网络传输迟延没有上限就叫异步系统)，即使只有一个成员是有问题的(faulty)，也不可能取得共识。</p>
+</blockquote>
+<blockquote>
+<p>根据CAP Theorem（Consistency一致性、Availability可用性、Partition tolerance容错性），任何一个分布式系统中，最多只能满足其中两个性质。</p>
+</blockquote>
+<blockquote>
+<p>分布式共识一个著名的协议是Paxos，该协议能够保证一致性，即第一个性质。</p>
+</blockquote>
+<h3 id="比特币中的共识协议-consensus-in-bitcoin">比特币中的共识协议(consensus in BitCoin):</h3>
+<p>比特币中共识要解决的一个问题是，有些节点可能是有恶意的。我们假设系统中大多数节点是好的，那么该如何取得共识协议?</p>
+<blockquote>
+<p>背景：假设系统中存在部分节点有恶意，但存在比例较小。大多数节点为“好”的节点，在这种情况下进行共识协议设置。<br>
+想法1：直接投票<br>
+某个节点打包交易到区块，将其发给其他节点，其他节点检查该候选区块，检查若正确投赞成票，若票数过半数，加入区块链。<br>
+存在的问题1——恶意节点不断打包不合法区块，导致一直无法达成共识，时间全花费在投票上。<br>
+存在的问题2——无强迫投票手段，某些节点不投票。<br>
+存在的问题3——网络延迟事先未知，投票需要等多久？效率上会产生问题。<br>
+更大的一个问题——membership，投票权。如果是联盟链，对加入成员有要求，可以基于投票。但比特币系统，任何人都可以加入，且创建账户及其简单，只需要本地产生公私钥对即可。只有转账（交易）时候,比特币系统才能知道该账户的存在。这样，黑客可以使用计算机专门生成大量公私钥对，当其产生大量公私钥对超过系统中一半数目，就可以获得支配地位（<strong>女巫攻击</strong>）。所以，这种简单的投票方案也是不可行的。</p>
+</blockquote>
+<p>比特币账户巧妙的解决了这个问题，不是按照账户数目投票，而是按照<strong>计算力来投票</strong>。</p>
+<ul>
+<li>
+<p>每个节点都可以在本地组装出一个候选区块，把它认为合法的交易放在里面，然后开始尝试各种nonce值(占4 byte)，看哪一个能满足不等式<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo><mo>≤</mo><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">H(block header)≤target</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span> 的要求。</p>
+</li>
+<li>
+<p>如果某个节点找到了符合要求的nonce，它就获得了记账权。</p>
+<ul>
+<li>
+<p>所谓的记账权，就是往比特币账本里写入下一个区块的权利。只有找到这个nonce，获得记账权的节点才有权利发布下一个区块。其他节点收到这个区块之后，要验证这个区块的合法性。</p>
+</li>
+<li>
+<p>比如括号里block header的内容填的对不对；block header里面有一个域，叫nBits域，实际上它是目标预值的一个编码检查一下nBits域设置的是不是符合比特币协议中规定的难度要求；该不等式是否成立。假设都符合要求，然后检查block body 里面的交易列表，验证一下每个交易都是合法的:</p>
+<ul>
+<li>要有合法的签名</li>
+<li>以前没有被花过</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>如果有一项不符合要求，这个区块就是不能被接受的。</p>
+</li>
+<li>
+<p>如果所有条件都符合，也不一定接受。</p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>
+<p>会不会合法区块被拒绝？<br>
+如图所示。发生分叉的情况下，暂时保存分叉情况，但区块链只承认最长合法链，随着时间推移，必然存在某一条链变成最长合法链。这样，也就会导致合法区块被拒绝.</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731137.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>分叉攻击<br>
+如图所示，A用户对上面的A转账给B的记录回滚，从而非法获取利益。在两条链上，发现交易都合法。这是一个典型的双花攻击。A给B转账后，用分叉攻击将钱又转回来，覆盖掉原来的记录。<br>
+在比特币系统中，这种情况实际上很难发生。因为大多数矿工认可的是最长的合法链，会沿着上面的链继续挖下去。而A这个攻击者要想回退记录，就必须使得下面的链变得比上面的链还长。理论上来说，攻击者需要达到整个系统中51%的计算力，才能使得这种攻击成功。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731066.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+</blockquote>
+<p>区块链在正常情况下也可能出现分叉:两个节点同时获得记账权。每个节点在本地自己组装一个它认为合适的区块，然后去试各种nonce，如果两个节点在差不多同一个时间找到了符合要求的nonce，就都可以把区块发布，这时会出现两个等长的分叉。</p>
+<p>这两条都是最长合法链，那该接受那条呢?</p>
+<p>比特币协议当中，在缺省(默认的意思)情况下，每个节点是接受它最早收到的那个。所以不同节点根据在网络上的位置不同，有的节点先听到新生成的其中一个区块，那就接受这个区块；有些节点先听到另一个区块，那就接受另一个区块。</p>
+<blockquote>
+<p>如何判断接收了一个区块?</p>
+<p>比特币协议中用到了implicit consign，如果沿着这个区块往下继续扩展，就算认可了这个发布的区块。</p>
+<p>比如在新生成的其中一个区块后面又拓展一个区块，表明就认可了这个新区块。</p>
+</blockquote>
+<p>**等长的临时性的分叉会维持一段时间，直到一个分叉胜出。**也就是哪一个链抢先一步生成了新的区块，哪一条就是最长合法链。另一个作废的就叫orphan block。这两个新区块有可能会各自拉拢，两个区块链看谁的算力强，有时候也是看谁的运气好，就会胜出。</p>
+<p>竞争记账权的好处:</p>
+<ul>
+<li>首先获得记账权的节点本身有一定的权力，可以决定哪些交易写到下一个区块里。但这些不应该被设定为竞争记账权的动力，所以巧妙地建立了一个机制:区块奖励(block reward)。</li>
+<li>比特币协议中规定获得记账权的节点在发布的区块里可以有一个特殊的交易:铸币交易。在这个交易里可以发布一定数量的比特币。</li>
+</ul>
+<p>这里要回到前面的问题①，谁来决定货币的发行?</p>
+<ul>
+<li>coinbase transaction币基交易，是比特币系统中发行新的比特币的唯一方法，后面的交易都是比特币的转移。这个交易不用指出币的来源。</li>
+<li>因此当一个区块胜出后，另一个作废的区块得到的比特币是没有作用的，其他诚实的区块是不会承认的。</li>
+</ul>
+<h2 id="总结：">总结：</h2>
+<p>比特币系统中要取得什么共识?</p>
+<p>去中心化的账本要取得共识。</p>
+<p>谁又能决定账本的内容呢?</p>
+<p>只有获得记账权的节点才能写东西。</p>
+<p>怎么获得记账权呢?</p>
+<p>就是解pow(挖矿)。按照算力记票，算力可以用每秒能试多少nonce数值表示。</p>
+<p>怎样防范女巫攻击呢?</p>
+<p>按算力记票，即使创建再多的账户，也无法使算力增强。</p>
+<blockquote>
+<p>比特币争夺记账权的过程叫作挖矿(mining)，比特币被称为数字黄金(digital gold)，争夺记账权的节点被称为矿工(miner)。</p>
+</blockquote>
+<h1>比特币系统的实现</h1>
+<h2 id="utxo">UTXO</h2>
+<p>区块链是去中心化的账本，比特币使用的是基于交易的这种账本模式(transaction[交易]-based ledger[账本])。系统当中<strong>并不会显示每个账户有多少钱</strong>。</p>
+<p>比特币系统的全节点要维护一个叫 <code>UTXO</code> (unspent transaction output)(还没有被花出去的交易的输出)的数据结构。</p>
+<blockquote>
+<p>区块链上有很多交易，有些交易的输出可能已经被花掉，有些还没有被花掉。<strong>所有没有被花掉的输出的集合</strong>就叫做UTXO。</p>
+<ul>
+<li>如图，A转给B5个BTC，之后B将其转给D，则UTXO中会删掉A-&gt;B这一交易记录，同时会添加B-&gt;D这一交易记录。</li>
+<li><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729519.png" alt="在这里插入图片描述"></li>
+<li>UTXO集合当中的每个元素要给出 <strong>产生输出的交易</strong> 的哈希值，以及它在这个交易里是第几个输出。这两个信息就可以定位到UTXO中的输出。</li>
+</ul>
+</blockquote>
+<p>UTXO集合有什么作用?</p>
+<p>为了检测 double spending。即检测新发布的交易是否合法。因此全节点要在内存中维护UTXO这样一个数据结构，以便==<strong>快速检测double spending</strong>==。</p>
+<p>每个交易要消耗掉一部分输出，也会产生新的输出。还看上面的例子，B花掉的5个比特币虽然不在UTXO里面，但如果他转账给D，而D没有花掉，那么这5个比特币又要保存在UTXO里面。如果D始终不花，那么这个信息要永久保存在UTXO里面。有可能是不想花，也有可能是把密钥丢了。</p>
+<p>每个交易可以有多个输入，也可以有多个输出，所有输入金额之和要等于输出金额之和。即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>s</mi><mo>=</mo><mi>t</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">total inputs=total outputs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>。因此一个交易可能来自多个地址，可能有多个签名。</p>
+<h3 id="交易费-transaction-fee">交易费(transaction fee)</h3>
+<p>有些交易total inputs略微大于total outputs。</p>
+<p>假如输入1比特币，输出0.99比特币，另外0.01比特币作为交易费给获得记账权发布区块的节点。</p>
+<p>区块奖励也不能完全作为挖矿的奖励，发布区块的节点为什么一定要把你的交易打包在区块呢?他们还要验证你的交易的合法性，如果交易较多占用的带宽会比较大，网络传播速度也会更慢。所以只有区块奖励是不够的。</p>
+<p>因此比特币系统设计了第二个激励机制:交易费(transaction fee)。也就是你把我的交易打包在区块里，我给你一些小费。交易费一般很小，也有一些简单的交易没有交易费。</p>
+<blockquote>
+<p>除了比特币这种基于交易的模式，与之对应的还有基于账户的模式(account-based ledger)，比如以太坊系统。在这种模式中，系统是要显示的记录每个账户上有多少币。</p>
+<p>比特币基于交易的模式，隐私保护性较好。缺点是比特币当中的转账交易要说明币的来源，而基于账户的模式就不用。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729242.png" alt="image-20220414002925126"></p>
+<p>一个区块的例子</p>
+<p>第一行表明:该区块包含了686个交易</p>
+<p>第二行:总输出XXX个比特币</p>
+<p>第四行:总交易费(686个交易的交易费之和)</p>
+<p>第五行:区块的序号</p>
+<p>第六行:区块的时间戳</p>
+<p>第九行:挖矿的难度(每隔2016个区块要调整挖矿的难度，保持出块时间在10分钟左右)</p>
+<p>倒数第二行:挖矿时尝试的随机数</p>
+<p>最下面一行:区块奖励(矿工挖矿的主要动力)</p>
+<p>右边:第一行:该区块块头的哈希值</p>
+<p>第二行:前一个区块块头的哈希值</p>
+<p>(注意:计算哈希值只算块头)</p>
+<p>两个哈希值的共同点:前面都有一串0。是因为，设置的目标预值，表示成16进制，就是前面一长串的0。所以凡是符合难度要求的区块，块头的哈希值算出来都是要有一长串的0。</p>
+<p>第四行:merkle root 是该区块中包含的那些交易构成的merkle tree的根哈希值。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729251.png" alt="image-20220414003017920"></p>
+<p>最后一行:是32位的无符号整数。nonce只有2的32次方个可能的取值。按照比特币现在的挖矿情况来说，很可能把2的32次方个取值都验了一遍也找不到合适的。那怎么办呢?block header 的数据结构里还有哪些域是可以调整的呢?</p>
+<p>第一行:比特币协议的版本号(无法更改的)</p>
+<p>第二行:前一个区块的块头的哈希值(无法更改)</p>
+<p>第三行:merkle tree的根哈希值(可以更改)</p>
+<p>第四行:区块产生的时间(可以调整)比特币系统不要求特别精确的时间，可以在一定范围内调整。</p>
+<p>第五行:目标预值(编码后的版本)(只能按协议中的要求定期调整)</p>
+<p>第六行:随机数</p>
+<p>挖矿时只改随机数不够，还可以更改根哈希值。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729732.png" alt="image-20220414003210408"></p>
+<p>铸币交易没有输入，它有一个coinbase，可以写入任何的内容。coinbase的内容是没有人会检查的，甚至可以写你的心情。</p>
+<p>那这个域对我们有什么用呢?</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731961.png" alt="image-20220414003250433" style="zoom:30%;" />
+<p>对应的是最后一个block header里的根哈希值对应的merkle tree，左下角的交易是coinbase，</p>
+<p>块头里4个字节的nonce不够用，还有其他字节可以用，<strong>比如coinbase域的前八个字节当做extra nonce来用</strong>，这样子搜索空间就增大到了2的96次方。</p>
+<p>所以真正挖矿的时候只有两层循环，外层循环调整coinbase域的extra nonce。算出block header里的根哈希值之后，内层循环再调整header里的nonce。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731143.png" alt="image-20220414003411450" style="zoom:50%;" />
+<p>该交易有两个输入和两个输出。</p>
+<p>左上角:这里的output其实是输入，指的是之前交易的output。</p>
+<p>右上角:这里的output都是unspent，都没有被花掉，会保存在UTXO里面。</p>
+<p>右边表格第一行:输入的总金额。</p>
+<p>依次往下:输出总金额、两者之间的差值。</p>
+<p>两表格下面:可以看出输入和输出都是用脚本的形式来指定的。</p>
+<p>比特币系统中验证交易的合法性，就是把input scripts和output script配对后执行来完成的。</p>
+<blockquote>
+<p>注意:不是把图中的input scripts 和output scripts配对，因为这两个脚本是一个交易中的脚本。</p>
+</blockquote>
+<p>不是把同一个交易里的输入脚本和输出脚本配对，而是把这里的输入脚本和前面提供币来源的交易的输出脚本配对。如果输入输出脚本拼接在一起，能顺利执行不出现错误，那么该交易就是合法的。</p>
+<h1>比特币网络</h1>
+<p>比特币工作于网络应用层，其底层（网络层）是一个P2P Overlay network（P2P覆盖网络）。比特币系统中所有节点完全平等，不像一些其他网络存在超级节点(super node)。要加入网络，至少需要知道一个种子节点，通过种子节点告知自己它所知道的节点。节点之间的通信采用了TCP协议，便于穿透防火墙。当节点离开时，只需要自行退出即可，其他节点在一定时间后仍然没有收到该节点消息，便会将其删掉。</p>
+<p>比特币网络设计原则：<strong>简单</strong>、<strong>鲁棒</strong>（最坏情况下能达到最优状况，即健壮性）而非高效。</p>
+<ul>
+<li>每个节点维护一个邻居节点集合，消息传播在网络中采用<strong>洪泛法 flooding</strong>，某个节点在收到一条消息会将其发送给所有邻居节点并标记，下次再收到便不会再发送该消息。</li>
+<li>邻居节点选取随机，未考虑网络底层拓扑结构，也与现实世界物理地址无关。该网络具有极强鲁棒性，但牺牲了网络效率。</li>
+</ul>
+<p>比特币系统中，每个节点要维护一个等待上链的交易集合。</p>
+<ul>
+<li>第一次听到交易，若是合法交易，则将其加入该交易集合并转发给邻居节点，以后再收到该交易就不再转发（避免网络上交易无线传输）。</li>
+<li>假如网络中存在两个冲突交易，如交易1：A-&gt;B,交易2：A-&gt;C（假设花费的同一笔钱）。具体接收哪个取决于节点先接收到哪个交易，之后收到另一个交易会将其放弃。</li>
+</ul>
+<blockquote>
+<p>假如某个节点先听到A-&gt;B，但又听到A-&gt;C已经上链，则此时A-&gt;B为非法交易，所以要再等待上链交易集合中删除A-&gt;B</p>
+</blockquote>
+<p>新发布区块在网络中传播方式与新发布交易传播方式类似，每个节点除检查该区块内容是否合法，还要检查是否位于最长合法链上。区块越大，则网络上传输越慢。BTC协议对于区块大小限制为不大于1M大小。</p>
+<blockquote>
+<p>区块大小越大，网络上传播时延越长；区块大小越小，则可以包含的交易数目越少。</p>
+</blockquote>
+<p>此外，比特币网络传播属于 <strong>Best effort（尽力而为）</strong> ，不能保证一定传输成功。以一个交易发布到网络上，未必所有节点都能收到，也未必所有节点收到交易顺序都一致。</p>
+<h1>BTC挖矿难度调整</h1>
+<p>在比特币系统中，区块链的出块时间保持在平均10min左右。毫无疑问的是，伴随着参与挖矿的人增多，系统总算力不断增强，挖矿的难度绝对不能一成不变。实际上，在比特币系统开发过程中，中本聪便考虑到了这个问题，并设计了一个相应的难度调整算法。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi><mi>h</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo><mo>&lt;</mo><mo>=</mo><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">H(block header)&lt;=target.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord">.</span></span></span></span></span></p>
+<ol>
+<li>如果不调整挖矿难度会怎么样？<br>
+系统总算力越来越强，若挖矿难度保持不变，则出块时间会越来越短。</li>
+<li>出块时间越来越短是好事吗？<br>
+出块时间缩短，那么交易可以很快便被写入区块链，并且提高了系统响应时间，增加了区块链系统效率。但是，出块时间并不是越短越好。出块时间太短，也会造成一定的问题。首先，区块在网络上传播具有时延，假如出块时间为1秒，但网络传播需要10秒，则会使得系统中节点经常性处于不一致的状态，增加了系统不稳定性，且系统经常性位于分叉状态（不仅二分叉，乃至多分叉）。分叉过多，则不利于系统达成共识，且会造成算力分散，使得黑客攻击成本大大降低(不再需要整个系统51%的算力)。</li>
+<li>10min的出块间隔是最优吗？<br>
+当然不是，但可以确定的是，系统出块时间需要维持在一个定值附近。后续文章中会介绍以太坊，以太坊中平均出块时间仅为15秒左右，但同样在以太坊中也有相应难度调整算法维持其平均出块时间，当然15s的时间明显会产生经常性的分叉，所以以太坊设计了新的共识协议Ghost。<br>
+当然，对于一个交易系统来说，10min这样一个交易时间是比较长的。但对于跨国交易来说，这个时间反而大大缩短了交易时间，减少了相应成本。</li>
+</ol>
+<blockquote>
+<p>比特币系统采用的哈希算法为SHA-256，对于挖矿难度的调整，可以视为调整目标空间在整个输出空间中所占比例大小。</p>
+<p>调整目标空间所占比例，简单的说需要目标值前需要多少个0。<br>
+当然，挖矿难度和目标阈值成反比，如下图所示，其中difficulty_1_target为是挖矿难度为1时候的target，即最小挖矿难度</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731912.png" alt="img"></p>
+</blockquote>
+<p>在BTC协议中规定，每隔2016个区块需要调整一次难度，根据10min产生一个新区块可以得到，大概需要14天的时间。具体调整公式如下</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729746.png" alt="img"></p>
+<blockquote>
+<p>可见，如果实际实际比较长，target会比较大，相应的挖矿难度会降低；如果实际实际比较短，target会比较小，相应的挖矿难度会增大。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181729131.png" alt="image-20220414010101139"></p>
+<h1>BTC挖矿</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>全节点</strong></th>
+<th style="text-align:center"><strong>轻节点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一直在线</td>
+<td style="text-align:center">不是一直在线</td>
+</tr>
+<tr>
+<td style="text-align:center">在本地硬盘上维护完整区块链信息</td>
+<td style="text-align:center">不保存整个区块链，只需要保存每隔区块块头</td>
+</tr>
+<tr>
+<td style="text-align:center">在内存中维护UTXO集合，以便于快速检验交易合法性</td>
+<td style="text-align:center">不保存全部交易，只保存和自己有关的交易</td>
+</tr>
+<tr>
+<td style="text-align:center">监听比特币网络中交易内容，验证每个交易合法性</td>
+<td style="text-align:center">无法验证大多数交易合法性，只能检验和自己相关的交易合法性</td>
+</tr>
+<tr>
+<td style="text-align:center">决定哪些交易会打包到区块中</td>
+<td style="text-align:center">无法检测网上发布的区块正确性</td>
+</tr>
+<tr>
+<td style="text-align:center">监听其他矿工挖出的区块，验证其合法性</td>
+<td style="text-align:center">可以验证挖矿难度</td>
+</tr>
+<tr>
+<td style="text-align:center">挖矿：1. 决定沿着哪条链挖下去。2. 当出现等长分叉，选择哪一个分叉</td>
+<td style="text-align:center">只能检测哪个是最长链，不知道哪个是最长合法链</td>
+</tr>
+</tbody>
+</table>
+<p>在比特币网络中，大多数节点都是轻节点。如果只是想进行转账操作，不需要挖矿，就无需运行一个全节点。</p>
+<p><strong>在挖矿过程中，如果监听到别人已经挖出区块延申了最长合法链，此时应该立刻放弃当前区块，在本地重新组装一个指向最后这个新合法区块的候选区块，重新开始挖矿。</strong></p>
+<p>这样是不是有些可惜？之前花费好多资源，全部白挖了。<br>
+实际上并不可惜。挖矿本身具有无记忆性(伯努利试验)，前面无论挖多久，对后续继续挖矿没有影响。</p>
+<p>比特币系统如何安全性？</p>
+<ul>
+<li>一是密码学的保证：别人没有自己的私钥，就无法伪造其合法签名，从而无法将其账户上BTC转走。（前提：系统中大多数算力掌握在好人手中）</li>
+<li>二是共识机制：保证了恶意交易不被系统承认。</li>
+</ul>
+<p>普通CPU -&gt; GPU -&gt;ASIC芯片（挖矿专用矿机）</p>
+<h2 id="大型矿池出现">大型矿池出现</h2>
+<blockquote>
+<p>挖矿另一个趋势便是大型矿池的出现。对于单个矿工来说，即使使用了ASIC矿机，其算力在整个系统中仍然只占据很少一部分，即使从平均收益看有利可图，但收入很不稳定。<br>
+此外，单个矿工除挖矿还要承担全节点其他责任，造成了算力的消耗。</p>
+</blockquote>
+<p>矿池的架构如下图，通常是一个全节点驱动多台矿机。矿工只需要不停计算哈希值，而全节点其他职责由矿主来承担。ASIC芯片只能计算哈希值，不能实现全节点其他功能。此外，矿池出现解决了单个矿工收益不稳定的问题。当获得收益后，所有矿工对收益进行分配，从而保证了收益的稳定性。</p>
+<p><img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731188.png" alt="在这里插入图片描述"></p>
+<h2 id="51-算力矿池可以发动哪些攻击">51%算力矿池可以发动哪些攻击</h2>
+<ol>
+<li>
+<p>分叉攻击<br>
+对已经经过6次确认的交易分叉，利用51%算力将交易记录回滚。</p>
+<blockquote>
+<p>矿工只能计算哈希值，并不知道区块包含哪些交易，区块链状况是什么。所以，这些“群众”是无知的，容易被利用<br>
+此外，51%攻击只是一个概率问题，并非达到51%算力就能发动攻击，不能达到就无法发动攻击。此外，矿池本身算力也是在不断变化的。</p>
+</blockquote>
+</li>
+<li>
+<p>封锁交易（Boycott）<br>
+假如攻击者不喜欢某个账户A，不想让A的交易上区块链，在监听到有其他人将A的交易发布到区块链上时，立刻发动分叉攻击，使A所在链无法成为”最长合法链“。这样，便实现了对A账户的封锁。</p>
+</li>
+<li>
+<p>盗币（将他人账户BTC转走）<br>
+这个是<strong>不可能</strong>的，因为其并没有他人账户私钥。如果依仗算力强，强行将没有签名的转账发布到区块链，正常节点不会认为其合法，这样，即使这条链再长，其他人也不会认为其是最长合法链。</p>
+</li>
+</ol>
+<h2 id="矿池出现的优劣">矿池出现的优劣</h2>
+<ul>
+<li>优点：解决了矿工收入不稳定的问题，减轻了矿工的负担。</li>
+<li>缺点：威胁到了区块链系统的安全，使得51%攻击变得容易起来。</li>
+</ul>
+<h1>BTC 脚本语言</h1>
+<h1>BTC 分叉</h1>
+<p>分叉指的是，原来的系统中为一条链，但分成了两条链。</p>
+<p>分叉形成的原因可能有多种，例如：</p>
+<ul>
+<li>挖矿时两个节点差不多同时挖出矿，都会发布区块(对比特币系统当前状态产生分歧导致的分叉——state fork)；</li>
+<li>分叉攻击，同样也会导致分叉(forking attack，人为故意造成)；</li>
+<li>比特币协议改变，在分布式系统中不能保证所有节点同时升级软件，假设存在少数节点未升级，导致出现分叉(protocal fork)；</li>
+</ul>
+<h2 id="硬分叉">硬分叉</h2>
+<blockquote>
+<p>什么情况会出现硬分叉？<br>
+对比特币协议增加新协议，扩展新功能，未升级软件的旧节点会不认可这些修改，会认为这些特性是非法的。这也就是对比特币协议内容产生分歧，从而导致分叉。硬分叉的一个典型例子，就是对比特币区块大小限制的修改。</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731862.png" alt="image-20220414013445482" style="zoom:50%;" />
+<p>假设系统中大多数节点更新了软件</p>
+<p>对于新节点来说，上面的为最长合法链，新节点便都会沿着上面的链继续挖；对于旧节点来说，上面的链无论多么长，都是一条非法链，不会认可该链，所以旧节点就会沿着下面的链继续挖矿。</p>
+<p>此时，就出现了新节点永远沿着上面的链挖矿，旧节点永远沿着下面的链挖矿，由于新节点算力足够强，所以形成两条永远都在延伸且平行的链。当然，上面的链，也有可能会挖出大小在1MB内的小区块，但对旧节点来说，该链上存在非法区块，不会认可该链。可见，这种分叉是持久性的。<br>
+只要这部分旧节点永远不更新软件，下面的链便永远不会消失。</p>
+<blockquote>
+<p>实际上，这个事情真正出现过。以太坊历史上的一件大事就是硬分叉事件。以太坊称为ETH，但目前看到的ETH已经不是最初的ETH了，以太坊在历史上发生过硬分叉，另一个链称为ETC。</p>
+<p>实际上，ETC才是以太坊设计原本的协议，而ETH是黑客攻击ETH上一个智能合约THE DAO后进行回滚的协议链(将黑客攻击偷取的以太币采用硬分叉方式回滚回到另一智能合约，然后退还给真正拥有者)。<br>
+但是这次硬分叉的后果，由于有人不愿意这么做，造成了以太坊社区的分裂。实际上，虽然ETC不如ETH又名，但实际它也是目前一种主流货币。<br>
+分叉之初，由于两个链分叉造成了互相影响，产生了很多麻烦。比如：在ETH链上有一笔转账B-&gt;C，有人便在ETC链上回放，将ETC链上的货币页转给了C(C收到两笔钱)。后来，对两条链各添加了一个chainID，将两个链区分开，才使得这两条链真正分开。</p>
+</blockquote>
+<h2 id="软分叉">软分叉</h2>
+<p>如果对BTC协议添加限制，使得原本合法交易在新交易中不合法，便会形成软分叉。</p>
+<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181731820.png" alt="image-20220414014251943" style="zoom:50%;" />
+<p>假设系统中大多数节点更新了软件</p>
+<p>旧节点挖出的区块一直被抛弃，无法得到出块奖励(不在最长合法链上)。这就倒逼旧节点升级软件，最终会实现区块链上的所有矿工共同认可新协议，实现软件协议的升级。</p>
+<p>需要注意的是，旧节点如果不升级软件，挖出的区块可能就白挖了，但对于系统来说，不会存在永久性分叉。</p>
+<h3 id="系统中可能出现软分叉的情况及其实例">系统中可能出现软分叉的情况及其实例</h3>
+<ol>
+<li>给某些目前协议中未规定的域赋予新的含义或规则。<br>
+最经典的就是，铸币交易中CoinBase域。在CoinBase域中写入任何内容都可以，没有任何规定。之前，在介绍挖矿时，提到挖矿本质是调整block header中的nonce，但其本身只有4个字节，搜索空间太小。所以实际使用中，将CoinBase域前8个字节作为另一个extra nonce，此时搜索空间从原本2^32 增长到2^96，对于目前挖矿难度来说已经足够。<br>
+但CoinBase中并不是只有8个字节，还剩下很多空间。有人便提出将其作为UTXO(当前还没花掉的交易集合)集合的根哈希值。目前UTXO是全节点自己在本地为了方便查询自行维护的，但UTXO内容并未写入区块链（还记得Merkle proof吗？Merkle proof用于验证某个交易是否在区块中，Merkle proof的交易信息是写入区块链的。）<br>
+由于UTXO存在本地，如果查询某账户余额，轻节点便需要询问全节点，全节点根据UTXO中信息可以计算得到账户余额，但如何确保全节点给的数据可信？由于直接修改block header会造成硬分叉，有人便提出了以上的方案(该域刚好无人用)。<br>
+可以看到，旧节点认可新节点的区块，但新节点对于旧节点CoinBase域检查时候，发行并没有这个UTXO的根哈希值，不会认可其发布的区块，所以这是软分叉。</li>
+<li>P2SH：Pay to Script Hash<br>
+比特币脚本中的功能，最初比特币版本中没有该功能，后来通过软分叉方法加入了进去。</li>
+</ol>
+<h2 id="总结">总结</h2>
+<ul>
+<li>soft fork<br>
+特点：只要系统中拥有半数以上算力节点更新软件，系统就不会产生永久性分叉</li>
+<li>hard fork<br>
+特点：必须系统中所有节点更新软件，系统才不会产生永久性分叉</li>
+</ul>
+<h1>BTC 匿名性分析</h1>
+<h2 id="btc系统中什么情况会破坏其匿名性？">BTC系统中什么情况会破坏其匿名性？</h2>
+<ol>
+<li>
+<p>用户可以生成多个地址账户，但这些地址账户可以被关联起来<br>
+表面上看，每次交易可以更换公私钥对，从而每次都是新的账户，具有很强的匿名性。但实际上，这些账户在一定情况下，是可以被关联起来的。</p>
+</li>
+<li>
+<p>地址账户与个人在真实社会中的身份也可能会产生关联。<br>
+任何使得BTC和实体世界中关联的操作都有可能泄露用户真实身份，其中最明显的就是资金的转入转出。要得到BTC，如果用钱买，就会与实体世界进行交互。想要将BTC转为现实中的货币，也同样需要与实体世界交互。</p>
+</li>
+</ol>
+<p>BTC匿名性有多好？如何提高匿名性？<br>
+匿名的本质是不想要暴露身份。而对于普通人来说，BTC的现有机制已经足够保持个人隐私了。但如果涉及违法，行政机关想要获得真实身份，其实很容易。</p>
+<p>那么可以采取哪些方法尽可能提高匿名性？</p>
+<blockquote>
+<p>从应用层看，可以将各个不同用户的BTC混合在一起，使得追查变得混乱(Coin mixing)；从网络层看，可以采用多路径转发的方法，数据不直接发送出去，而是经过很多跳(洋葱路由的基本思想)。</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://overmind7.github.io/2022/04/12/Bitcoin/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/04/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            以太坊
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/03/24/PloyViT/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">PloyViT</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2022
+        <i class="ri-heart-fill heart_icon"></i> Overmind
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/dlog.svg" alt="今天学习了吗"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
