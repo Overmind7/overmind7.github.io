@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> 今天学习了吗</title>
+      <title> Don&#39;t Let Go</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/picture_compress.ico" />
@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="今天学习了吗" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Don't Let Go" type="application/atom+xml">
 <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
@@ -62,7 +62,7 @@
       <img src="/images/cover2.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="/">今天学习了吗</a></h1>
+      <h1><a href="/">Don&#39;t Let Go</a></h1>
       <div id="subtitle-box">
         
         <span id="subtitle"></span>
@@ -88,7 +88,7 @@
   <script>
     try {
       var typed = new Typed("#subtitle", {
-        strings: ['FOREVER YOUNG', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        strings: ['别走', '我喜欢你啊zjh', '别走'],
         startDelay: 0,
         typeSpeed: 200,
         loop: true,
@@ -121,19 +121,11 @@
   
   
   
-
 <div class="notice" style="margin-top:50px">
     <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
+    <div class="notice-content">夏天到了，我的夏天结束了</div>
 </div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
+
 
 <style>
     .notice {
@@ -166,6 +158,62 @@
     
     
     
+    
+    <article
+  id="post-2022-5-30"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/30/2022-5-30/"
+    >2022-5-30</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/30/2022-5-30/" class="article-date">
+  <time datetime="2022-05-29T16:00:00.000Z" itemprop="datePublished">2022-05-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  有东西被加密了, 请输入密码查看. 
+      <a class="article-more-link" href="/2022/05/30/2022-5-30/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag">日记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
     
     <article
   id="post-2022-5-29"
@@ -686,83 +734,6 @@
 </article>
 
     
-    <article
-  id="post-Bitcoin"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/12/Bitcoin/"
-    >Bitcoin</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/12/Bitcoin/" class="article-date">
-  <time datetime="2022-04-12T09:28:42.000Z" itemprop="datePublished">2022-04-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a> / <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81/">比特币</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<p>北大肖臻区块链网课</p>
-</blockquote>
-<h1>BTC 密码学原理</h1>
-<blockquote>
-<p>比特币主要用到了密码学中的两个功能:</p>
-<ol>
-<li>哈希</li>
-<li>签名</li>
-</ol>
-</blockquote>
-<h2 id="1-哈希">1. 哈希</h2>
-<p>密码学中用到的哈希函数被称为 <code>cryptographic hash function</code>,</p>
-<p>它有两个重要的性质:</p>
-<h3 id="1-1collision-resistance">1.1collision resistance :</h3>
-<p>哈希碰撞</p>
-<p>例如x≠y H(x)=H(y) 两个不同的输入，输出却是相等的，这就称哈希碰撞。它是不可避免的，因为输入空间总大于输出空间。给出x，很难找到y，除非蛮力求解(brute-force)。</p>
-<img src="https://raw.githubusercontent.com/Overmind7/images/main/img/202206181730265.png" alt="image-20220413161904436" style="zoom:50%;" />
-<blockquote>
-<p><strong>collision resistance:</strong></p>
-<p>A hash function H is said to be collision resistant if it is infeasible to  find two values, x and y, such that x ≠ y, yet H(x)=H(y)</p>
-</blockquote> 
-      <a class="article-more-link" href="/2022/04/12/Bitcoin/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
@@ -829,7 +800,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/dlog.svg" alt="今天学习了吗"></a>
+    <a href="/"><img src="/images/dlog.svg" alt="Don&#39;t Let Go"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -1140,6 +1111,23 @@
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1472921626&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 
